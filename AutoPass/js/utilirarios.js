@@ -80,10 +80,6 @@ Os dados poderão ser compartilhados apenas quando necessário,
 incluindo exigências legais, ordens judiciais ou integrações
 autorizadas entre serviços.
 
-misture 3 ovos, duas xícaras de farinha,
-uma xícara de açúcar, leite, fermento e asse durante
-aproximadamente quarenta minutos, Então ficara pronto.
-
 O usuário possui direito de solicitar alterações, atualizações
 ou remoção de determinadas informações quando permitido por
 legislação aplicável.
@@ -191,16 +187,18 @@ const icon = document.querySelector(".popup-icon i");
 
 
 document
-    .querySelectorAll(".footer-links p")
+    .querySelectorAll(".footer-links p, .policy-link")
     .forEach(item => {
 
         item.addEventListener("click", () => {
 
-            const data = popupData[item.innerText];
+            const texto = item.innerText.trim();
+
+            const data = popupData[texto];
 
             if (!data) return;
 
-            title.innerText = item.innerText;
+            title.innerText = texto;
 
             content.innerHTML = data.html;
 
