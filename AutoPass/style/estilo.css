@@ -549,3 +549,333 @@ transform:translateY(-3px);
 color:#2b7cff;
 
 }
+
+/* ============= Main Cadastro =============== */
+
+
+#maincadastro {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background: #f2f2f2;
+    font-family: Inter, sans-serif;
+}
+
+#maincadastro::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url("../img/logo/fundo_login.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: .3;
+    z-index: -1;
+}
+
+/* ======================
+   CONTAINER
+====================== */
+
+#maincadastro .main-wrapper{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ======================
+   BOTÃO VOLTAR
+====================== */
+
+#maincadastro .back-btn{
+
+    width:50px;
+    height:50px;
+
+    position:absolute;
+    top:90px;
+    left:45px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+    border:1px solid #ddd;
+
+    font-size:22px;
+    color:black;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    z-index:1000;
+}
+
+#maincadastro .back-btn:hover{
+    transform:translateX(-3px);
+    background:#f7f7f7;
+}
+
+/* ======================
+   CARD
+====================== */
+
+#maincadastro .main-card{
+
+    width:100%;
+    max-width:980px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border:none;
+    border-radius:20px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.07);
+}
+
+/* ======================
+   TITULOS
+====================== */
+
+#maincadastro h3{
+    font-size:33px;
+    font-weight:700;
+}
+
+#maincadastro .blue{
+    color:#0d6efd;
+}
+
+#maincadastro .sub{
+    font-size:13px;
+    color:#777;
+}
+
+/* ======================
+   PERFIL
+====================== */
+
+#maincadastro .profile{
+
+    width:90px;
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:35px;
+
+    color:#0d6efd;
+
+    border:1px solid #ddd;
+
+    position:relative;
+
+    background:white;
+
+    cursor:pointer;
+}
+
+#maincadastro .camera{
+
+    position:absolute;
+
+    bottom:3px;
+    right:0;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:11px;
+}
+
+#maincadastro #default-icon{
+    font-size:38px;
+    color:#0d6efd;
+    transition:.3s;
+}
+
+#maincadastro .profile:hover #default-icon{
+    transform:scale(1.1);
+}
+
+/* ======================
+   INPUTS
+====================== */
+
+#maincadastro .form-control{
+    height:45px;
+    font-size:13px;
+}
+
+#maincadastro .form-control:focus{
+    box-shadow:none;
+    border-color:#0d6efd;
+}
+
+#maincadastro .input-group-text{
+    background:white;
+    border-right:none;
+    color:#999;
+}
+
+#maincadastro .input-group .form-control{
+    border-left:none;
+}
+
+/* ======================
+   BOTÕES
+====================== */
+
+#maincadastro .btn-cadastro{
+
+    height:45px;
+    font-weight:600;
+
+    border-radius:10px;
+
+    transition:.25s ease;
+}
+
+#maincadastro .btn-cadastro:hover{
+
+    transform:translateY(-1px);
+
+    box-shadow:
+    0 8px 20px rgba(13,110,253,.25);
+}
+
+/* ======================
+   ANIMAÇÕES
+====================== */
+
+#maincadastro .valido{
+    border:2px solid #28a745 !important;
+}
+
+#maincadastro .invalido{
+    border:2px solid #dc3545 !important;
+}
+
+#maincadastro .vibrar{
+    animation:shake .3s;
+}
+
+@keyframes shake{
+
+    0%{transform:translateX(0)}
+    25%{transform:translateX(-5px)}
+    50%{transform:translateX(5px)}
+    75%{transform:translateX(-5px)}
+    100%{transform:translateX(0)}
+
+}
+
+/* ======================
+   FOOTER CADASTRO
+====================== */
+#maincadastro .footer{
+
+    background:#1f1f22;
+
+    padding:20px;
+
+    color:white;
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+#maincadastro .footer p{
+
+    margin:0;
+
+    font-size:14px;
+}
+/* ======================
+   GOOGLE LOGIN
+====================== */
+
+#maincadastro .google-area{
+    margin-top:15px;
+}
+
+#maincadastro .google-btn{
+
+    width:100%;
+    height:45px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+#maincadastro .google-btn:hover{
+
+    background:#f8f8f8;
+
+    transform:translateY(-1px);
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,.08);
+}
+
+#maincadastro .google-btn img{
+
+    width:18px;
+    height:18px;
+
+    object-fit:contain;
+}
