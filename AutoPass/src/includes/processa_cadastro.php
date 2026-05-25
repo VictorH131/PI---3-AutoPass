@@ -3,7 +3,7 @@ session_start();
 require_once "dbconnect.php";
 
 function erro($msg) {
-    header("Location: ../cadastro.php?erro=" . urlencode($msg));
+    header("Location: ../../cadastro.php?erro=" . urlencode($msg));
     exit;
 }
 
@@ -102,11 +102,11 @@ if(
 // UPLOAD DA FOTO
 // ===============================
 
-$foto_caminho = "img/uploads/default.png";
+$foto_caminho = "src/img/uploads/default.png";
 
 if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
 
-    $pasta = "../img/uploads/";
+    $pasta = "../../src/img/uploads/";
 
     // extensões permitidas
     $permitidas = ['jpg','png'];
@@ -132,7 +132,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
 
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino)) {
 
-        $foto_caminho = "img/uploads/" . $nome_arquivo;
+        $foto_caminho = "src/img/uploads/" . $nome_arquivo;
 
     } else {
 
@@ -201,7 +201,7 @@ if($cadastro){
 
     unset($_SESSION['csrf_token']);
 
-    header("Location: ../login.php?sucesso=1");
+    header("Location: ../../login.php?sucesso=1");
     exit;
 
 }else{
