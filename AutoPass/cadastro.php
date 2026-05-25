@@ -42,7 +42,7 @@ if (isset($_GET['erro'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/ico/favicon.png">
+    <link rel="icon" type="image/x-icon" href="src/img/ico/favicon.png">
 
     <!-- css -->
     <link rel="stylesheet" href="style/estilo.css">
@@ -76,7 +76,7 @@ if (isset($_GET['erro'])) {
             width: 100%;
             height: 100%;
 
-            background: url("img/logo/fundo_login.png");
+            background: url("src/img/logo/fundo_login.png");
 
             background-size: cover;
             background-position: center;
@@ -502,7 +502,7 @@ if (isset($_GET['erro'])) {
 
 
 
-            <form action="includes/processa_cadastro.php" method="POST" enctype="multipart/form-data">
+            <form action="src/includes/processa_cadastro.php" method="POST" enctype="multipart/form-data">
                 <input type="file" id="file-input" name="foto" accept="image/*" hidden>
                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
 
