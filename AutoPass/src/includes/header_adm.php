@@ -268,9 +268,6 @@ body{
                             <i class="bi bi-person"></i> Editar Perfil
                         </a>
                     </li>
-
-                    <li><hr></li>
-
                     <li>
                         <a class="dropdown-item text-danger" href="../src/includes/logout.php">
                             <i class="bi bi-box-arrow-right"></i> Sair

@@ -579,7 +579,7 @@
     width: 100%;
     height: 100%;
 
-    background: url("../img/logo/fundo_login.png");
+    background: url("../src/img/logo/fundo_login.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -635,6 +635,43 @@
 #maincadastro .back-btn:hover {
     transform: translateX(-3px);
     background: #f7f7f7;
+}
+
+
+@media(max-width:768px) {
+
+
+    #maincadastro .back-btn {
+
+        width: 50px;
+        height: 50px;
+
+        position: absolute;
+        top: 130px;
+        left: 45px;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+        border: 1px solid #ddd;
+
+        font-size: 22px;
+        color: black;
+
+        text-decoration: none;
+
+        transition: .3s;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+
+        z-index: 1000;
+    }
+
+
 }
 
 /* ======================
@@ -851,70 +888,318 @@
     font-size: 14px;
 }
 
-/* ======================
-   GOOGLE LOGIN
-====================== */
 
-#maincadastro .google-area {
-    margin-top: 15px;
+/* ============= Main login =============== */
+
+.popup-overlay{
+
+    position:fixed !important;
+
+    top:0 !important;
+    left:0 !important;
+
+    width:100vw !important;
+    height:100vh !important;
+
+    display:flex !important;
+
+    justify-content:center !important;
+    align-items:center !important;
+
+    background:rgba(0,0,0,.6) !important;
+
+    z-index:999999999 !important;
+
+    opacity:0;
+
+    visibility:hidden;
+
 }
 
-#maincadastro .google-btn {
+.popup-overlay.active{
 
-    width: 100%;
-    height: 45px;
+    opacity:1;
 
-    border: none;
-    border-radius: 10px;
+    visibility:visible;
 
-    background: #fff;
+}
 
-    border: 1px solid #ddd;
+.popup-box{
+
+    width:420px;
+
+    max-width:90%;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.3);
+
+    transform:scale(.9);
+
+    transition:.3s;
+
+}
+
+.popup-overlay.active .popup-box{
+
+    transform:scale(1);
+
+}
+
+.popup-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.popup-header button{
+
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.popup-body{
+
+    padding:20px;
+
+}
+
+.popup-body input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+
+
+.popup-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:20px;
+
+    border-top:1px solid #eee;
+
+}
+
+
+.popup-footer button{
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+/* Botão cancelar */
+
+#cancelarPopup{
+
+    background:#f13b3b;
+
+    color:#ffffff;
+
+}
+
+#cancelarPopup:hover{
+
+    background:#a62121;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* Botão enviar */
+
+.popup-footer .btn-enviar{
+
+    background:#0d6efd;
+
+    color:white;
+
+    border:none;
+
+}
+
+.popup-footer .btn-enviar:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* Botão X do topo */
+
+.popup-header button{
+
+    width:35px;
+
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:24px;
+
+    transition:.3s;
+
+}
+
+.popup-header button:hover{
+
+    background:#f1f3f5;
+
+}
+
+
+.alerta{
+    position: fixed;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    min-width: 320px;
+    max-width: 420px;
+
+    padding: 16px 22px;
+
+    border-radius: 14px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    text-align: center;
 
     font-size: 14px;
     font-weight: 600;
 
-    cursor: pointer;
-
-    transition: .25s ease;
-}
-
-#maincadastro .google-btn:hover {
-
-    background: #f8f8f8;
-
-    transform: translateY(-1px);
+    z-index: 99999;
 
     box-shadow:
-        0 6px 18px rgba(0, 0, 0, .08);
+    0 10px 30px rgba(0,0,0,.18);
+
+    animation:
+    alertaEntrada .25s ease,
+    alertaSaida .25s ease 3.7s forwards;
 }
 
-#maincadastro .google-btn img {
+/* SUCESSO */
 
-    width: 18px;
-    height: 18px;
+.alerta.sucesso{
+    background: #16a34a;
+    color: #ffffff;
+}
 
-    object-fit: contain;
+/* ERRO */
+
+.alerta.erro{
+    background: #dc2626;
+    color: #ffffff;
 }
 
 
+/* ENTRADA */
 
-/* ============= Main Cadastro =============== */
+@keyframes alertaEntrada{
+
+    from{
+        opacity: 0;
+        transform:
+        translateX(-50%)
+        translateY(-15px);
+    }
+
+    to{
+        opacity: 1;
+        transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+}
 
 
+/* SAIDA */
 
-#mainlogin * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Inter, sans-serif;
+@keyframes alertaSaida{
+
+    to{
+        opacity: 0;
+        transform:
+        translateX(-50%)
+        translateY(-15px);
+        visibility: hidden;
+    }
+
+}
+
+.popup-overlay{
+    z-index: 99999 !important;
+}
+
+.popup-box{
+    position: relative;
+    z-index: 100000 !important;
+}
+
+.alerta{
+    z-index: 100001 !important;
 }
 
 #mainlogin {
@@ -952,7 +1237,7 @@
 
 }
 
-#mainlogin>* {
+#mainlogin * {
 
     position: relative;
     z-index: 1;

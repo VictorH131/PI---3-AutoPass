@@ -269,18 +269,7 @@ if (isset($_GET['erro'])) {
                     Cadastrar
                 </button>
 
-                <div class="text-center my-3 small text-muted">
-                    ou
-                </div>
-
-                <!-- Google -->
-                <div class="google-area">
-                    <button class="google-btn">
-                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
-                        Continuar com Google
-                    </button>
-                </div>
-
+    
                 <p class="text-center mt-4">
 
                     Já possui conta?

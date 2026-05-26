@@ -5,16 +5,8 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-if (isset($_GET['erro'])) {
-    echo "<div style='position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999'
-    class='alert alert-danger'>"
-        . htmlspecialchars($_GET['erro']) .
-        "</div>";
-}
 
-
-
-if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
+if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
 
     if ($_SESSION['usuario']['tipo'] >= 2) {
 
@@ -24,7 +16,7 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
     }
 
 
-    if($_SESSION['usuario']['tipo'] == 1){
+    if ($_SESSION['usuario']['tipo'] == 1) {
 
         header("Location: Sessao_cliente/home.php");
         exit;
@@ -33,6 +25,26 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
 
 }
 ?>
+<?php if(isset($_GET['sucesso'])): ?>
+
+    <div class="alerta sucesso">
+
+        <?= htmlspecialchars($_GET['sucesso']) ?>
+
+    </div>
+
+<?php endif; ?>
+
+
+<?php if(isset($_GET['erro'])): ?>
+
+    <div class="alerta erro">
+
+        <?= htmlspecialchars($_GET['erro']) ?>
+
+    </div>
+
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,7 +56,7 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
 
     <title>Login | AutoPass</title>
 
-      <!-- bootstrap -->
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -54,7 +66,7 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
     <!-- css -->
     <link rel="stylesheet" href="style/estilo.css">
 
-   
+
 </head>
 
 <body id="mainlogin">
@@ -155,31 +167,17 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
 
                     </div>
 
-                    <a href="#">
-
+                    <a href="#" id="abrirPopup">
                         Esqueceu a senha?
-
                     </a>
+
+                   
 
                 </div>
 
                 <button class="btn btn-primary w-100 mt-4 btn-login">
 
                     Entrar
-
-                </button>
-
-                <div class="text-center my-3 small text-muted">
-
-                    ou
-
-                </div>
-
-                <button type="button" class="google-btn">
-
-                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
-
-                    Continuar com Google
 
                 </button>
 
@@ -236,6 +234,9 @@ if(isset($_SESSION['logado']) && $_SESSION['logado'] === true){
 
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/popup_senha.js"></script>
 </body>
 
 </html>
