@@ -1,0 +1,3 @@
+INSERT INTO usuarios (nome,sobrenome,cpf,telefone,email,senha,foto,tipo) VALUES 
+('Victor Hernandez','Soares de Almeida','14277907601','19999999999','victornado21a@gmail.com','$2y$10$3I7xK8r1GJ4Y9nTQvL2P5eBvM8N6X1R4A9D7K2L5F8J1S3H6Z0QW','img/uploads/victor.png',3),
+('Gustavo','De Oliveira','49249021879','19993475751','Gustavodeoliveira3006@gmail.com','$2y$10$8J4P6Q2M9K1L5N7X3A0D6F2H8S4G1R9V2Y5T7W3E1U6I8O4P2','img/uploads/gustavo.png',2);

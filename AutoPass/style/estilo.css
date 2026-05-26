@@ -1,552 +1,561 @@
 /* ============= RESET GLOBAL =============== */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
 }
 
-#mainindex{
-min-height:100vh;
-overflow-x:hidden;
+#mainindex {
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
 /* ============= HEADER / NAVBAR =============== */
 
-.nav-custom{
-height:70px;
-background:white;
-margin:10px;
-padding:0 40px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.03);
+.nav-custom {
+    height: 70px;
+    background: white;
+    margin: 10px;
+    padding: 0 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .03);
 }
 
-.logo{
-font-size:18px;
-font-weight:700;
+.logo {
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.logo i{
-font-size:25px;
-color:#0057d9;
+.logo i {
+    font-size: 25px;
+    color: #0057d9;
 }
 
-.logo span{
-color:#0057d9;
+.logo span {
+    color: #0057d9;
 }
 
 
 /* ============= BOTÕES HEADER =============== */
 
-.login-btn{
+.login-btn {
 
-background:transparent;
-border:1px solid transparent;
+    background: transparent;
+    border: 1px solid transparent;
 
-padding:8px 25px;
+    padding: 8px 25px;
 
-font-size:13px;
-font-weight:500;
+    font-size: 13px;
+    font-weight: 500;
 
-border-radius:30px;
+    border-radius: 30px;
 
-transition:.3s;
-
-}
-
-.login-btn:hover{
-
-background:#f5f5f7;
-border-color:#ececec;
+    transition: .3s;
 
 }
 
-.signup-btn{
+.login-btn:hover {
 
-background:#0057d9;
-border:none;
+    background: #f5f5f7;
+    border-color: #ececec;
 
-color:white;
+}
 
-padding:8px 25px;
+.signup-btn {
 
-border-radius:30px;
+    background: #0057d9;
+    border: none;
 
-font-size:12px;
-font-weight:600;
+    color: white;
+
+    padding: 8px 25px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 600;
 
 }
 
 
 /* ============= HERO SECTION =============== */
 
-.hero{
-padding:30px 0;
+.hero {
+    padding: 30px 0;
 }
 
-.hero-title{
+.hero-title {
 
-font-size:40px;
-font-weight:800;
+    font-size: 40px;
+    font-weight: 800;
 
-line-height:1;
-letter-spacing:-2px;
+    line-height: 1;
+    letter-spacing: -2px;
 
-max-width:500px;
+    max-width: 500px;
 
 }
 
-.hero-text{
+.hero-text {
 
-font-size:14px;
+    font-size: 14px;
 
-line-height:1.7;
+    line-height: 1.7;
 
-color:#777;
+    color: #777;
 
-max-width:450px;
+    max-width: 450px;
 
-margin:20px 0;
+    margin: 20px 0;
 
 }
 
 
 /* ============= HERO CARDS =============== */
 
-.option-card{
+.option-card {
 
-min-height:220px;
+    min-height: 220px;
 
-padding:30px;
+    padding: 30px;
 
-border-radius:18px;
+    border-radius: 18px;
 
-cursor:pointer;
+    cursor: pointer;
 
-transition:.4s;
+    transition: .4s;
 
-display:flex;
+    display: flex;
 
-flex-direction:column;
+    flex-direction: column;
 
-justify-content:flex-start;
-
-}
-
-.option-card:hover{
-
-transform:translateY(-5px);
+    justify-content: flex-start;
 
 }
 
-.option-card h5{
+.option-card:hover {
 
-font-size:20px;
-margin-top:20px!important;
+    transform: translateY(-5px);
 
 }
 
-.option-card small{
+.option-card h5 {
 
-font-size:14px;
-line-height:1.6;
+    font-size: 20px;
+    margin-top: 20px !important;
 
+}
+
+.option-card small {
+
+    font-size: 14px;
+    line-height: 1.6;
+
+}
+
+
+
+.option-card {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
 }
 
 
 /* ============= CLIENT CARD =============== */
 
-.client-card{
+.client-card {
 
-background:#0057d9;
-color:white;
+    background: #0057d9;
+    color: white;
 
-position:relative;
+    position: relative;
 
-overflow:hidden;
+    overflow: hidden;
 
 }
 
-.client-card::after{
+.client-card::after {
 
-content:"\F4DA";
+    content: "\F4DA";
 
-font-family:"bootstrap-icons";
+    font-family: "bootstrap-icons";
 
-position:absolute;
+    position: absolute;
 
-right:0;
-bottom:-30px;
+    right: 0;
+    bottom: -30px;
 
-font-size:120px;
+    font-size: 120px;
 
-color:rgba(255,255,255,.08);
+    color: rgba(255, 255, 255, .08);
 
 }
 
 
 /* ============= AUTOMATIZAR CARD =============== */
 
-.auto-card{
+.auto-card {
 
-background:white;
+    background: white;
 
-border:1px solid #ececec;
+    border: 1px solid #ececec;
 
 }
 
-.auto-card h5{
+.auto-card h5 {
 
-color:#0057d9;
+    color: #0057d9;
 
 }
 
 
 /* ============= HERO IMAGE =============== */
 
-.hero-image img{
+.hero-image img {
 
-width:100%;
-height:420px;
+    width: 100%;
+    height: 420px;
 
-object-fit:cover;
+    object-fit: cover;
 
-border-radius:18px;
+    border-radius: 18px;
 
-box-shadow:
-0 15px 35px rgba(0,0,0,.06);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .06);
 
 }
 
 
 /* ============= SECTION TITLES =============== */
 
-.section-title{
+.section-title {
 
-font-size:42px;
-font-weight:800;
+    font-size: 42px;
+    font-weight: 800;
 
 }
 
-.section-sub{
+.section-sub {
 
-font-size:14px;
+    font-size: 14px;
 
-color:#7a7a7a;
+    color: #7a7a7a;
 
-max-width:650px;
+    max-width: 650px;
 
-margin:auto;
+    margin: auto;
 
-line-height:1.7;
+    line-height: 1.7;
 
 }
 
 
 /* ============= TECNOLOGIAS =============== */
 
-.tech{
+.tech {
 
-margin-top:50px;
+    margin-top: 50px;
 
-padding:70px 0;
+    padding: 70px 0;
 
-background:white;
-
-}
-
-.tech-card{
-
-padding:25px;
-
-height:100%;
-
-border-radius:18px;
-
-border:1px solid #ececec;
-
-transition:.3s;
+    background: white;
 
 }
 
-.tech-card:hover{
+.tech-card {
 
-transform:translateY(-5px);
+    padding: 25px;
 
-box-shadow:
-0 10px 20px rgba(0,0,0,.05);
+    height: 100%;
+
+    border-radius: 18px;
+
+    border: 1px solid #ececec;
+
+    transition: .3s;
 
 }
 
-.icon-box{
+.tech-card:hover {
 
-width:45px;
-height:45px;
+    transform: translateY(-5px);
 
-display:flex;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .05);
 
-align-items:center;
-justify-content:center;
+}
 
-background:#edf4ff;
+.icon-box {
 
-color:#0057d9;
+    width: 45px;
+    height: 45px;
 
-border-radius:12px;
+    display: flex;
 
-margin-bottom:15px;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf4ff;
+
+    color: #0057d9;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
 
 }
 
 
 /* ============= COMPARAÇÃO / VANTAGENS =============== */
 
-.compare-card{
+.compare-card {
 
-height:370px;
+    height: 370px;
 
-padding:38px;
+    padding: 38px;
 
-border-radius:25px;
+    border-radius: 25px;
 
-position:relative;
+    position: relative;
 
-overflow:hidden;
+    overflow: hidden;
 
-box-shadow:
-0 10px 20px rgba(0,0,0,.04);
-
-}
-
-.bad{
-
-background:#fff8f8;
-border:1px solid #f9d2d2;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .04);
 
 }
 
-.good{
+.bad {
 
-background:
-linear-gradient(
-90deg,
-#0057d9,
-#347cff
-);
+    background: #fff8f8;
+    border: 1px solid #f9d2d2;
 
-color:white;
+}
+
+.good {
+
+    background:
+        linear-gradient(90deg,
+            #0057d9,
+            #347cff);
+
+    color: white;
 
 }
 
 
 /* ============= ÍCONES DE FUNDO =============== */
 
-.bg-icon{
+.bg-icon {
 
-position:absolute;
+    position: absolute;
 
-right:30px;
-top:20px;
+    right: 30px;
+    top: 20px;
 
-font-size:120px;
+    font-size: 120px;
 
-opacity:.2;
+    opacity: .2;
 
-pointer-events:none;
+    pointer-events: none;
 
-z-index:1;
-
-}
-
-.bad .bg-icon{
-
-color:#d2bcbc;
+    z-index: 1;
 
 }
 
-.good .bg-icon{
+.bad .bg-icon {
 
-font-size:140px;
+    color: #d2bcbc;
 
-color:white;
+}
+
+.good .bg-icon {
+
+    font-size: 140px;
+
+    color: white;
 
 }
 
 
 /* ============= LISTAS COMPARAÇÃO =============== */
 
-.feature-list{
+.feature-list {
 
-margin-top:20px;
+    margin-top: 20px;
 
-padding:0;
+    padding: 0;
 
-list-style:none;
+    list-style: none;
 
-position:relative;
+    position: relative;
 
-z-index:2;
-
-}
-
-.feature-list li{
-
-display:flex;
-
-align-items:flex-start;
-
-gap:15px;
-
-margin-bottom:30px;
+    z-index: 2;
 
 }
 
-.feature-list li i{
+.feature-list li {
 
-font-size:20px;
+    display: flex;
 
-margin-top:3px;
+    align-items: flex-start;
 
-min-width:25px;
+    gap: 15px;
 
-}
-
-.bad .feature-list i{
-
-color:#ef4444;
+    margin-bottom: 30px;
 
 }
 
-.good .feature-list i{
+.feature-list li i {
 
-color:white;
+    font-size: 20px;
 
-}
+    margin-top: 3px;
 
-.feature-list b{
-
-display:block;
-
-font-size:18px;
-
-font-weight:700;
-
-margin-bottom:4px;
+    min-width: 25px;
 
 }
 
-.feature-list span{
+.bad .feature-list i {
 
-font-size:14px;
+    color: #ef4444;
 
-line-height:1.5;
+}
 
-opacity:.9;
+.good .feature-list i {
+
+    color: white;
+
+}
+
+.feature-list b {
+
+    display: block;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 4px;
+
+}
+
+.feature-list span {
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    opacity: .9;
 
 }
 
 
 /* ============= FOOTER =============== */
 
-.footer{
+.footer {
 
-margin-top:0;
+    margin-top: 0;
 
-padding:90px 0 0;
+    padding: 90px 0 0;
 
-background:#1f1f22;
+    background: #1f1f22;
 
-color:white;
-
-}
-
-.footer-title{
-
-color:#2b7cff;
-
-font-size:14px;
-
-font-weight:700;
-
-letter-spacing:1px;
-
-margin-bottom:25px;
+    color: white;
 
 }
 
-.footer-links{
+.footer-title {
 
-text-align:left;
+    color: #2b7cff;
 
-}
+    font-size: 14px;
 
-.footer-links p{
+    font-weight: 700;
 
-font-size:14px;
+    letter-spacing: 1px;
 
-margin-bottom:14px;
-
-color:#cfcfcf;
-
-cursor:pointer;
-
-transition:.3s;
+    margin-bottom: 25px;
 
 }
 
-.footer-links p:hover{
+.footer-links {
 
-color:white;
-
-transform:translateX(4px);
+    text-align: left;
 
 }
 
-.footer-bottom{
+.footer-links p {
 
-padding:14px;
+    font-size: 14px;
 
-background:#0057d9;
+    margin-bottom: 14px;
 
-font-size:12px;
+    color: #cfcfcf;
 
-color:white;
+    cursor: pointer;
 
-margin-top:100px;
+    transition: .3s;
+
+}
+
+.footer-links p:hover {
+
+    color: white;
+
+    transform: translateX(4px);
+
+}
+
+.footer-bottom {
+
+    padding: 14px;
+
+    background: #0057d9;
+
+    font-size: 12px;
+
+    color: white;
+
+    margin-top: 100px;
 
 }
 
 
 /* ============= REDES SOCIAIS =============== */
 
-.social{
+.social {
 
-display:flex;
+    display: flex;
 
-gap:18px;
+    gap: 18px;
 
-margin-top:25px;
+    margin-top: 25px;
 
-font-size:22px;
-
-}
-
-.social i{
-
-cursor:pointer;
-
-transition:.3s;
+    font-size: 22px;
 
 }
 
-.social i:hover{
+.social i {
 
-transform:translateY(-3px);
+    cursor: pointer;
 
-color:#2b7cff;
+    transition: .3s;
+
+}
+
+.social i:hover {
+
+    transform: translateY(-3px);
+
+    color: #2b7cff;
 
 }
 
@@ -583,299 +592,631 @@ color:#2b7cff;
    CONTAINER
 ====================== */
 
-#maincadastro .main-wrapper{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
+#maincadastro .main-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ======================
    BOTÃO VOLTAR
 ====================== */
 
-#maincadastro .back-btn{
+#maincadastro .back-btn {
 
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
 
-    position:absolute;
-    top:90px;
-    left:45px;
+    position: absolute;
+    top: 90px;
+    left: 45px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background:white;
-    border:1px solid #ddd;
+    background: white;
+    border: 1px solid #ddd;
 
-    font-size:22px;
-    color:black;
+    font-size: 22px;
+    color: black;
 
-    text-decoration:none;
+    text-decoration: none;
 
-    transition:.3s;
+    transition: .3s;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
 
-    z-index:1000;
+    z-index: 1000;
 }
 
-#maincadastro .back-btn:hover{
-    transform:translateX(-3px);
-    background:#f7f7f7;
+#maincadastro .back-btn:hover {
+    transform: translateX(-3px);
+    background: #f7f7f7;
 }
 
 /* ======================
    CARD
 ====================== */
 
-#maincadastro .main-card{
+#maincadastro .main-card {
 
-    width:100%;
-    max-width:980px;
+    width: 100%;
+    max-width: 980px;
 
-    margin:auto;
+    margin: auto;
 
-    padding:40px;
+    padding: 40px;
 
-    border:none;
-    border-radius:20px;
+    border: none;
+    border-radius: 20px;
 
-    background:rgba(255,255,255,.96);
+    background: rgba(255, 255, 255, .96);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter: blur(10px);
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.07);
+        0 10px 35px rgba(0, 0, 0, .07);
 }
 
 /* ======================
    TITULOS
 ====================== */
 
-#maincadastro h3{
-    font-size:33px;
-    font-weight:700;
+#maincadastro h3 {
+    font-size: 33px;
+    font-weight: 700;
 }
 
-#maincadastro .blue{
-    color:#0d6efd;
+#maincadastro .blue {
+    color: #0d6efd;
 }
 
-#maincadastro .sub{
-    font-size:13px;
-    color:#777;
+#maincadastro .sub {
+    font-size: 13px;
+    color: #777;
 }
 
 /* ======================
    PERFIL
 ====================== */
 
-#maincadastro .profile{
+#maincadastro .profile {
 
-    width:90px;
-    height:90px;
+    width: 90px;
+    height: 90px;
 
-    margin:auto;
+    margin: auto;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size:35px;
+    font-size: 35px;
 
-    color:#0d6efd;
+    color: #0d6efd;
 
-    border:1px solid #ddd;
+    border: 1px solid #ddd;
 
-    position:relative;
+    position: relative;
 
-    background:white;
+    background: white;
 
-    cursor:pointer;
+    cursor: pointer;
 }
 
-#maincadastro .camera{
+#maincadastro .camera {
 
-    position:absolute;
+    position: absolute;
 
-    bottom:3px;
-    right:0;
+    bottom: 3px;
+    right: 0;
 
-    width:22px;
-    height:22px;
+    width: 22px;
+    height: 22px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:#0d6efd;
+    background: #0d6efd;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    color:white;
-    font-size:11px;
+    color: white;
+    font-size: 11px;
 }
 
-#maincadastro #default-icon{
-    font-size:38px;
-    color:#0d6efd;
-    transition:.3s;
+#maincadastro #default-icon {
+    font-size: 38px;
+    color: #0d6efd;
+    transition: .3s;
 }
 
-#maincadastro .profile:hover #default-icon{
-    transform:scale(1.1);
+#maincadastro .profile:hover #default-icon {
+    transform: scale(1.1);
 }
 
 /* ======================
    INPUTS
 ====================== */
 
-#maincadastro .form-control{
-    height:45px;
-    font-size:13px;
+#maincadastro .form-control {
+    height: 45px;
+    font-size: 13px;
 }
 
-#maincadastro .form-control:focus{
-    box-shadow:none;
-    border-color:#0d6efd;
+#maincadastro .form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
 }
 
-#maincadastro .input-group-text{
-    background:white;
-    border-right:none;
-    color:#999;
+#maincadastro .input-group-text {
+    background: white;
+    border-right: none;
+    color: #999;
 }
 
-#maincadastro .input-group .form-control{
-    border-left:none;
+#maincadastro .input-group .form-control {
+    border-left: none;
 }
 
 /* ======================
    BOTÕES
 ====================== */
 
-#maincadastro .btn-cadastro{
+#maincadastro .btn-cadastro {
 
-    height:45px;
-    font-weight:600;
+    height: 45px;
+    font-weight: 600;
 
-    border-radius:10px;
+    border-radius: 10px;
 
-    transition:.25s ease;
+    transition: .25s ease;
 }
 
-#maincadastro .btn-cadastro:hover{
+#maincadastro .btn-cadastro:hover {
 
-    transform:translateY(-1px);
+    transform: translateY(-1px);
 
     box-shadow:
-    0 8px 20px rgba(13,110,253,.25);
+        0 8px 20px rgba(13, 110, 253, .25);
 }
 
 /* ======================
    ANIMAÇÕES
 ====================== */
 
-#maincadastro .valido{
-    border:2px solid #28a745 !important;
+#maincadastro .valido {
+    border: 2px solid #28a745 !important;
 }
 
-#maincadastro .invalido{
-    border:2px solid #dc3545 !important;
+#maincadastro .invalido {
+    border: 2px solid #dc3545 !important;
 }
 
-#maincadastro .vibrar{
-    animation:shake .3s;
+#maincadastro .vibrar {
+    animation: shake .3s;
 }
 
-@keyframes shake{
+@keyframes shake {
 
-    0%{transform:translateX(0)}
-    25%{transform:translateX(-5px)}
-    50%{transform:translateX(5px)}
-    75%{transform:translateX(-5px)}
-    100%{transform:translateX(0)}
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(-5px)
+    }
+
+    50% {
+        transform: translateX(5px)
+    }
+
+    75% {
+        transform: translateX(-5px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
 
 }
 
 /* ======================
    FOOTER CADASTRO
 ====================== */
-#maincadastro .footer{
+#maincadastro .footer {
 
-    background:#1f1f22;
+    background: #1f1f22;
 
-    padding:20px;
+    padding: 20px;
 
-    color:white;
+    color: white;
 
-    text-align:center;
+    text-align: center;
 
-    margin-top:25px;
+    margin-top: 25px;
 
 }
 
-#maincadastro .footer p{
+#maincadastro .footer p {
 
-    margin:0;
+    margin: 0;
 
-    font-size:14px;
+    font-size: 14px;
 }
+
 /* ======================
    GOOGLE LOGIN
 ====================== */
 
-#maincadastro .google-area{
-    margin-top:15px;
+#maincadastro .google-area {
+    margin-top: 15px;
 }
 
-#maincadastro .google-btn{
+#maincadastro .google-btn {
 
-    width:100%;
-    height:45px;
+    width: 100%;
+    height: 45px;
 
-    border:none;
-    border-radius:10px;
+    border: none;
+    border-radius: 10px;
 
-    background:#fff;
+    background: #fff;
 
-    border:1px solid #ddd;
+    border: 1px solid #ddd;
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
-    gap:10px;
+    gap: 10px;
 
-    font-size:14px;
-    font-weight:600;
+    font-size: 14px;
+    font-weight: 600;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.25s ease;
+    transition: .25s ease;
 }
 
-#maincadastro .google-btn:hover{
+#maincadastro .google-btn:hover {
 
-    background:#f8f8f8;
+    background: #f8f8f8;
 
-    transform:translateY(-1px);
+    transform: translateY(-1px);
 
     box-shadow:
-    0 6px 18px rgba(0,0,0,.08);
+        0 6px 18px rgba(0, 0, 0, .08);
 }
 
-#maincadastro .google-btn img{
+#maincadastro .google-btn img {
 
-    width:18px;
-    height:18px;
+    width: 18px;
+    height: 18px;
 
-    object-fit:contain;
+    object-fit: contain;
+}
+
+
+
+/* ============= Main Cadastro =============== */
+
+
+
+#mainlogin * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+#mainlogin {
+
+    min-height: 100vh;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+#mainlogin::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url("../src/img/logo/fundo_login.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: .3;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+}
+
+#mainlogin>* {
+
+    position: relative;
+    z-index: 1;
+
+}
+
+#mainlogin .main-wrapper {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#mainlogin .back-btn {
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+
+    top: 40px;
+    left: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    font-size: 22px;
+
+    color: black;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+
+}
+
+#mainlogin .back-btn:hover {
+
+    transform: translateX(-3px);
+
+    background: #f7f7f7;
+
+}
+
+#mainlogin .main-card {
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: auto auto 80px auto;
+
+    padding: 40px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .95);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .07);
+
+}
+
+#mainlogin img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+#mainlogin h3 {
+
+    font-size: 32px;
+    font-weight: 700;
+
+}
+
+#mainlogin .blue {
+
+    color: #0d6efd;
+
+}
+
+#mainlogin .sub {
+
+    font-size: 13px;
+    color: #777;
+
+}
+
+#mainlogin .form-label {
+
+    font-size: 12px;
+    font-weight: 600;
+
+}
+
+#mainlogin .input-group-text {
+
+    background: white;
+    border-right: none;
+    color: #999;
+
+}
+
+#mainlogin .form-control {
+
+    border-left: none;
+    height: 45px;
+
+}
+
+#mainlogin .form-control:focus {
+
+    box-shadow: none;
+    border-color: #0d6efd;
+
+}
+
+#mainlogin .btn-login {
+
+    height: 45px;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+}
+
+#mainlogin .google-btn {
+
+    width: 100%;
+    height: 45px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+#mainlogin .google-btn:hover {
+
+    background: #f7f7f7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, .08);
+
+}
+
+#mainlogin .google-btn img {
+
+    width: 18px;
+
+}
+
+#mainlogin .footer {
+
+    background: #1f1f22;
+
+    padding: 20px;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+@media(max-width:768px) {
+
+    #mainlogin .main-wrapper {
+
+        padding: 20px 0;
+
+    }
+
+    #mainlogin .main-card {
+
+        width: 92%;
+
+        margin: 80px auto 60px auto;
+
+        padding: 25px;
+
+        border-radius: 18px;
+
+    }
+
+    #mainlogin .back-btn {
+
+        top: 15px;
+        left: 15px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+
+    }
+
+    #mainlogin .profile {
+
+        width: 75px;
+        height: 75px;
+
+    }
+
+    #mainlogin h3 {
+
+        font-size: 26px;
+
+    }
+
+    #mainlogin .sub {
+
+        font-size: 12px;
+
+    }
+
+    #mainlogin .btn-login,
+    #mainlogin .google-btn {
+
+        height: 42px;
+
+        font-size: 14px;
+
+    }
+
+    #mainlogin .footer {
+
+        padding: 15px;
+
+        font-size: 13px;
+
+    }
+
 }
