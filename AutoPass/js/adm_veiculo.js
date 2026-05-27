@@ -50,18 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
             overlay.appendChild(box);
             document.body.appendChild(overlay);
 
-            fetch(`../src/includes/toggle_usuario.php?id=${id}`)
+            fetch(`../src/includes/popup_carros.php?id=${id}`)
                 .then(r => r.text())
-                .then((novoStatus) => {
+                .then((html) => {
 
-                    btn.dataset.status = novoStatus;
+                    content.innerHTML = html;
 
-                    btn.innerHTML = novoStatus === "ativo"
-                        ? `<i class="bi bi-x-circle text-danger"></i>`
-                        : `<i class="bi bi-arrow-repeat text-success"></i>`;
-
-                    overlay.remove();
-                })
+                });
         });
 
     });
@@ -216,7 +211,7 @@ document.addEventListener("click", function (e) {
 
                 overlay.remove();
 
-                location.reload(); // <- aqui
+                location.reload();
             });
 
     });
@@ -225,3 +220,112 @@ document.addEventListener("click", function (e) {
 
 
 
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btn = document.getElementById("btnNovoFuncionario");
+    if (!btn) return;
+
+    btn.addEventListener("click", function () {
+
+        const overlay = document.createElement("div");
+        overlay.className = "position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center";
+        overlay.style.background = "rgba(0,0,0,0.6)";
+        overlay.style.zIndex = "9999";
+
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) overlay.remove();
+        });
+
+        const box = document.createElement("div");
+        box.className = "bg-white rounded-4 shadow p-4 position-relative";
+        box.style.width = "420px";
+
+        const close = document.createElement("button");
+        close.innerHTML = `<i class="bi bi-x-lg"></i>`;
+        close.className = "btn btn-danger rounded-circle position-absolute d-flex align-items-center justify-content-center";
+        close.style.top = "12px";
+        close.style.right = "12px";
+        close.style.width = "36px";
+        close.style.height = "36px";
+        close.style.padding = "0";
+        close.onclick = () => overlay.remove();
+
+        box.innerHTML = `
+            <h5 class="fw-bold mb-3">Adicionar Funcionário</h5>
+
+            <p class="text-muted small mb-3">
+                Informe o e-mail do cliente que será promovido.
+            </p>
+
+            <input type="email" id="emailCliente"
+                class="form-control mb-2"
+                placeholder="ex: cliente@email.com">
+
+            <div id="msgBox" class="small text-center mb-2"></div>
+
+            <button class="btn btn-primary w-100" id="btnSalvarFuncionario">
+                Confirmar
+            </button>
+        `;
+
+        box.appendChild(close);
+        overlay.appendChild(box);
+        document.body.appendChild(overlay);
+
+        const msgBox = box.querySelector("#msgBox");
+        const btnSalvar = box.querySelector("#btnSalvarFuncionario");
+
+        btnSalvar.addEventListener("click", function () {
+
+            const email = box.querySelector("#emailCliente").value.trim();
+
+            if (!email) {
+                msgBox.innerHTML = "Digite um e-mail";
+                msgBox.className = "text-danger small text-center mb-2";
+                return;
+            }
+
+            btnSalvar.disabled = true;
+            btnSalvar.innerHTML = "Processando...";
+
+            fetch("../src/includes/novo_funcionario.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "email=" + encodeURIComponent(email)
+            })
+            .then(r => r.text())
+            .then(res => {
+
+                msgBox.innerHTML = res;
+
+                const ok = res.toLowerCase().includes("sucesso");
+
+                msgBox.className = ok
+                    ? "text-success small text-center mb-2"
+                    : "text-danger small text-center mb-2";
+
+                setTimeout(() => {
+                    overlay.remove();
+                    if (ok) location.reload();
+                }, 1200);
+
+            })
+            .catch(() => {
+                msgBox.innerHTML = "Erro no servidor";
+                msgBox.className = "text-danger small text-center mb-2";
+                btnSalvar.disabled = false;
+                btnSalvar.innerHTML = "Confirmar";
+            });
+
+        });
+
+    });
+
+});

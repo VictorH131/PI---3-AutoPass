@@ -459,75 +459,71 @@
 
 
 /* ============= FOOTER =============== */
-
-.footer {
-
-    margin-top: 0;
-
-    padding: 90px 0 0;
-
+.footer, .container-app .footer {
     background: #1f1f22;
-
     color: white;
-
+    padding: 70px 0 0;
 }
 
 .footer-title {
-
     color: #2b7cff;
-
     font-size: 14px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
-    margin-bottom: 25px;
-
-}
-
-.footer-links {
-
-    text-align: left;
-
+    margin-bottom: 18px;
 }
 
 .footer-links p {
-
     font-size: 14px;
-
-    margin-bottom: 14px;
-
+    margin-bottom: 10px;
     color: #cfcfcf;
-
     cursor: pointer;
-
-    transition: .3s;
-
+    transition: .25s ease;
 }
 
 .footer-links p:hover {
-
     color: white;
-
     transform: translateX(4px);
+}
 
+.social {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.social a {
+    color: white;
+    transition: .25s ease;
+    display: inline-block;
+}
+
+.social a:hover {
+    color: #2b7cff;
+    transform: translateY(-3px);
 }
 
 .footer-bottom {
-
+    margin-top: 40px;
     padding: 14px;
-
     background: #0057d9;
-
     font-size: 12px;
-
-    color: white;
-
-    margin-top: 100px;
-
+    text-align: center;
 }
 
+.footer .row {
+    align-items: flex-start;
+}
+
+.footer .col-lg-6:first-child {
+    padding-left: 60px;
+}
+
+.footer .social {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding-left: 10px;
+}
 
 /* ============= REDES SOCIAIS =============== */
 

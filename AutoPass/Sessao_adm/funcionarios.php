@@ -9,26 +9,37 @@ include '../src/includes/dbconnect.php';
 
 echo '<title>Funcionários - AutoPass</title>';
 
-// BUSCAR FUNCIONÁRIOS + ÚLTIMO ACESSO
+// ================= PAGINAÇÃO =================
+$pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
+$porPagina = 10;
+$inicio = ($pagina - 1) * $porPagina;
+
+// TOTAL DE REGISTROS
+$totalSql = "SELECT COUNT(*) as total FROM usuarios";
+$totalStmt = $conn->prepare($totalSql);
+$totalStmt->execute();
+$total = $totalStmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+$totalPaginas = ceil($total / $porPagina);
+
+// ================= LISTA USUÁRIOS =================
 $sql = "
 SELECT 
     usuarios.*,
     MAX(acessos.data_acesso) AS ultimo_acesso
-
 FROM usuarios
-
 LEFT JOIN veiculos 
     ON veiculos.id_usuarios = usuarios.id_usuario
-
 LEFT JOIN acessos 
     ON acessos.id_veiculo = veiculos.id_veiculo
-
 GROUP BY usuarios.id_usuario
-
 ORDER BY usuarios.id_usuario
+LIMIT :inicio, :porPagina
 ";
 
 $stmt = $conn->prepare($sql);
+$stmt->bindValue(':inicio', $inicio, PDO::PARAM_INT);
+$stmt->bindValue(':porPagina', $porPagina, PDO::PARAM_INT);
 $stmt->execute();
 
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,21 +58,18 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <small class="text-secondary">Gerencie a equipe cadastrada no sistema.</small>
             </div>
 
-            <button class="btn btn-primary rounded-3 px-4">
+            <button id="btnNovoFuncionario" class="btn btn-primary rounded-3 px-4">
                 + Novo Funcionário
             </button>
 
         </div>
 
-        <!-- FILTROS + LIMPAR -->
+        <!-- FILTROS -->
         <div class="d-flex mb-4 align-items-center">
 
-            <!-- BLOCO ESQUERDA (FILTROS) -->
             <div class="d-flex gap-2 flex-wrap">
 
-                <!-- TIPO -->
                 <div class="dropdown">
-
                     <button id="btnTipo" class="btn btn-outline-primary dropdown-toggle border"
                         data-bs-toggle="dropdown" style="min-width:180px; border-radius:10px;">
                         Tipo: Todos
@@ -75,12 +83,9 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </li>
                         <li><a class="dropdown-item" href="#" onclick="setTipo('1','Clientes')">Clientes</a></li>
                     </ul>
-
                 </div>
 
-                <!-- STATUS -->
                 <div class="dropdown">
-
                     <button id="btnStatus" class="btn btn-outline-success dropdown-toggle border"
                         data-bs-toggle="dropdown" style="min-width:180px; border-radius:10px;">
                         Status: Todos
@@ -94,12 +99,10 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <li><a class="dropdown-item" href="#" onclick="setStatus('bloqueado','Bloqueado')">Bloqueado</a>
                         </li>
                     </ul>
-
                 </div>
 
             </div>
 
-            <!-- BOTÃO DIREITA -->
             <button onclick="limparFiltros()" class="btn btn-outline-danger border ms-auto"
                 style="min-width:160px; border-radius:10px;">
                 Limpar filtros
@@ -130,77 +133,65 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                             <?php foreach ($usuarios as $dados) { ?>
 
-                                <tr data-tipo="<?php echo $dados['tipo']; ?>" data-status="<?php echo $dados['status']; ?>">
+                                <tr data-tipo="<?= $dados['tipo'] ?>" data-status="<?= $dados['status'] ?>">
 
                                     <td class="p-4">
-
                                         <div class="d-flex align-items-center gap-3">
-
-                                            <img src="../<?php echo $dados['foto']; ?>" width="48" height="48"
+                                            <img src="../<?= $dados['foto'] ?>" width="48" height="48"
                                                 style="object-fit:cover;border-radius:50%;">
-
                                             <div>
                                                 <div class="fw-semibold text-dark">
-                                                    <?php echo $dados['nome'] . ' ' . $dados['sobrenome']; ?>
+                                                    <?= $dados['nome'] . ' ' . $dados['sobrenome'] ?>
                                                 </div>
                                                 <small class="text-secondary">
-                                                    <?php echo $dados['email']; ?>
+                                                    <?= $dados['email'] ?>
                                                 </small>
                                             </div>
-
                                         </div>
-
                                     </td>
 
                                     <td>
                                         <?php if ($dados['tipo'] == 3) { ?>
-                                            <span class="badge text-bg-primary px-3 py-2">ADMIN</span>
+                                            <span class="badge text-bg-primary">ADMIN</span>
                                         <?php } elseif ($dados['tipo'] == 2) { ?>
-                                            <span class="badge bg-primary-subtle text-primary px-3 py-2">FUNCIONÁRIO</span>
+                                            <span class="badge bg-primary-subtle text-primary">FUNCIONÁRIO</span>
                                         <?php } else { ?>
-                                            <span class="badge bg-secondary-subtle text-secondary px-3 py-2">CLIENTE</span>
+                                            <span class="badge bg-secondary-subtle text-secondary">CLIENTE</span>
                                         <?php } ?>
                                     </td>
 
                                     <td>
-                                        <?php if ($dados['status'] == 'ativo') { ?>
-                                            <span class="fw-semibold text-primary">● Ativo</span>
-                                        <?php } elseif ($dados['status'] == 'desativado') { ?>
-                                            <span class="fw-semibold text-secondary">● Inativo</span>
-                                        <?php } elseif ($dados['status'] == 'bloqueado') { ?>
-                                            <span class="fw-semibold text-danger">● Bloqueado</span>
-                                        <?php } ?>
+                                        <?= ucfirst($dados['status']) ?>
                                     </td>
 
                                     <td>
-                                        <?php if ($dados['ultimo_acesso']) { ?>
-                                            <?php echo date('d/m/Y H:i', strtotime($dados['ultimo_acesso'])); ?>
-                                        <?php } else { ?>
-                                            Nunca acessou
-                                        <?php } ?>
+                                        <?= $dados['ultimo_acesso']
+                                            ? date('d/m/Y H:i', strtotime($dados['ultimo_acesso']))
+                                            : 'Nunca acessou' ?>
                                     </td>
 
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center gap-2">
 
                                             <button class="btn btn-light border rounded-circle btn-carros"
-                                                data-id="<?php echo $dados['id_usuario']; ?>"
-                                                style="width:38px;height:38px;">
+                                                data-id="<?= $dados['id_usuario'] ?>" style="width:38px;height:38px;">
                                                 <i class="bi bi-car-front"></i>
                                             </button>
 
                                             <?php if ($_SESSION['usuario']['tipo'] == 3) { ?>
-                                                <button class="btn btn-light border rounded-circle btn-toggle-status"
-                                                    data-id="<?php echo $dados['id_usuario']; ?>"
-                                                    data-status="<?php echo $dados['status']; ?>"
-                                                    style="width:38px;height:38px;">
+                                                <?php
+                                                $ativo = $dados['status'] === 'ativo';
 
-                                                    <?php if ($dados['status'] == 'ativo') { ?>
-                                                        <i class="bi bi-x-circle text-danger"></i>
-                                                    <?php } else { ?>
-                                                        <i class="bi bi-arrow-repeat text-success"></i>
-                                                    <?php } ?>
+                                                $corBtn = $ativo ? 'btn-success' : 'btn-danger';
+                                                $icone = $ativo ? 'bi-check-circle' : 'bi-x-circle';
+                                                ?>
 
+                                                <button
+                                                    class="apagar btn <?= $corBtn ?> btn-toggle-status d-flex align-items-center justify-content-center"
+                                                    data-id="<?= $dados['id_usuario'] ?>" data-status="<?= $dados['status'] ?>"
+                                                    style="width:38px;height:38px; border-radius:50%;">
+
+                                                    <i class="bi <?= $icone ?>"></i>
                                                 </button>
                                             <?php } ?>
 
@@ -221,11 +212,39 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         </div>
 
+        <!-- PAGINAÇÃO -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+
+            <div class="text-muted">
+                Página <?= $pagina ?> de <?= $totalPaginas ?>
+            </div>
+
+            <div class="btn-group">
+
+                <?php if ($pagina > 1) { ?>
+                    <a class="btn btn-outline-primary" href="?pagina=<?= $pagina - 1 ?>">Anterior</a>
+                <?php } ?>
+
+                <?php for ($i = 1; $i <= $totalPaginas; $i++) { ?>
+                    <a class="btn <?= $i == $pagina ? 'btn-primary' : 'btn-outline-primary' ?>" href="?pagina=<?= $i ?>">
+                        <?= $i ?>
+                    </a>
+                <?php } ?>
+
+                <?php if ($pagina < $totalPaginas) { ?>
+                    <a class="btn btn-outline-primary" href="?pagina=<?= $pagina + 1 ?>">Próxima</a>
+                <?php } ?>
+
+            </div>
+
+        </div>
+
     </div>
 
     <script src="../js/adm_veiculo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
 
-</html>
+    <?php
+    include '../src/includes/footer.php';
+    ?>

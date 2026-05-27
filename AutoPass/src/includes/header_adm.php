@@ -16,19 +16,9 @@
     <link rel="icon" type="image/x-icon" href="../src/img/ico/favicon.png">
 
     <!-- css -->
-    <link rel="stylesheet" href="style/estilo.css">
+    <link rel="stylesheet" href="../style/estilo.css">
     <style>
-        /* RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Inter, sans-serif;
-        }
-
-        body {
-            background: #f4f6fb;
-        }
+       
 
         /* LAYOUT */
         .container-app {

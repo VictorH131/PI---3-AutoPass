@@ -1,42 +1,46 @@
 <?php
-include 'dbconnect.php';
+require_once 'dbconnect.php';
 
 $id = $_GET['id'] ?? 0;
 
 $sql = "SELECT * FROM veiculos WHERE id_usuarios = :id";
 $stmt = $conn->prepare($sql);
-$stmt->bindValue(':id', $id);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 
 $carros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<h3>Veículos do Usuário</h3>
+<h4 class="mb-3">Veículos do Usuário</h4>
 
-<?php if ($carros) { ?>
+<?php if (!empty($carros)) { ?>
 
-<table class="table table-striped">
+<table class="table table-striped align-middle">
     <thead>
         <tr>
             <th>Modelo</th>
             <th>Placa</th>
             <th>Cor</th>
+            <th>Ano</th>
         </tr>
     </thead>
 
     <tbody>
         <?php foreach ($carros as $c) { ?>
-        <tr>
-            <td><?= $c['modelo'] ?></td>
-            <td><?= $c['placa'] ?></td>
-            <td><?= $c['cor'] ?></td>
-        </tr>
+            <tr>
+                <td><?= htmlspecialchars($c['modelo']) ?></td>
+                <td><?= htmlspecialchars($c['placa']) ?></td>
+                <td><?= htmlspecialchars($c['cor']) ?></td>
+                <td><?= htmlspecialchars($c['ano']) ?></td>
+            </tr>
         <?php } ?>
     </tbody>
 </table>
 
 <?php } else { ?>
 
-<p>Nenhum veículo encontrado.</p>
+<div class="alert alert-warning">
+    Nenhum veículo encontrado para este usuário.
+</div>
 
 <?php } ?>
