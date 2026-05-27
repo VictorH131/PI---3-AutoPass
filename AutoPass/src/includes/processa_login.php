@@ -64,7 +64,7 @@ if (isset($_POST['email'], $_POST['senha'], $_POST['csrf_token'])) {
 
                 // ARMAZENA DADOS DO USUÁRIO
                 $_SESSION['usuario'] = [
-                    'id' => $usuario['id'],
+                    'id_usuario' => $usuario['id_usuario'],
                     'nome' => $usuario['nome'],
                     'sobrenome' => $usuario['sobrenome'],
                     'email' => $usuario['email'],

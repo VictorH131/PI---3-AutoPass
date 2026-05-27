@@ -2,75 +2,39 @@
 session_start();
 require_once '../includes/dbconnect.php';
 
+$mensagem = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    try {
 
-        try {
+        if (isset($_POST['reset_clientes'])) {
 
             $hash1 = password_hash('a123123', PASSWORD_DEFAULT);
-            $hash2 = password_hash('Funcionario123', PASSWORD_DEFAULT);
+            $hash2 = password_hash('oliveira', PASSWORD_DEFAULT);
 
-            $sql = "UPDATE usuarios SET senha = :senha, tipo = :tipo WHERE id = :id";
+            $sql = "UPDATE usuarios SET senha = :senha, tipo = :tipo WHERE id_usuario = :id";
             $stmt = $conn->prepare($sql);
 
-            // Victor - Admin (nível 3)
+            // Cliente 1
             $stmt->execute([
                 ':senha' => $hash1,
                 ':tipo' => 3,
                 ':id' => 1
             ]);
 
-            // Usuário nível 2
+            // Cliente 2
             $stmt->execute([
                 ':senha' => $hash2,
-                ':tipo' => 2,
+                ':tipo' => 1,
                 ':id' => 2
             ]);
 
-            echo "Senhas atualizadas com sucesso!";
-
-        } catch (PDOException $e) {
-
-        echo "Erro: " . htmlspecialchars($e->getMessage());
-
-
-        if (isset($_POST['reset_adm'])) {
-
-            $hash1 = password_hash('a123123', PASSWORD_DEFAULT);
-            $hash2 = password_hash('Catarino@123', PASSWORD_DEFAULT);
-            $hash3 = password_hash('feoli0805', PASSWORD_DEFAULT);
-            $hash4 = password_hash('25862210', PASSWORD_DEFAULT);
-
-            $sql = "UPDATE adm SET senha = :senha WHERE id_adm = :id";
-            $stmt = $conn->prepare($sql);
-
-            $stmt->execute([
-                ':senha' => $hash1,
-                ':id' => 1
-            ]);
-
-            $stmt->execute([
-                ':senha' => $hash2,
-                ':id' => 2
-            ]);
-
-            $stmt->execute([
-                ':senha' => $hash3,
-                ':id' => 3
-            ]);
-
-            $stmt->execute([
-                ':senha' => $hash4,
-                ':id' => 4
-            ]);
-
-            $mensagem = "Senhas dos administradores redefinidas.";
+            $mensagem = "Senhas dos clientes atualizadas com sucesso!";
         }
 
     } catch (PDOException $e) {
-
-        $mensagem = "Erro: " . htmlspecialchars($e->getMessage());
-
+        $mensagem = "Erro: " . $e->getMessage();
     }
 }
 ?>
@@ -85,22 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-    <?php if (isset($mensagem)): ?>
-        <p><?= $mensagem ?></p>
-    <?php endif; ?>
+<?php if (!empty($mensagem)): ?>
+    <p><?= $mensagem ?></p>
+<?php endif; ?>
 
-    <form method="POST">
+<form method="POST">
 
-        <button type="submit" name="reset_aluno">
-            Resetar Senhas dos clientes
-        </button>
+    <button type="submit" name="reset_clientes">
+        Resetar Senhas dos Clientes
+    </button>
 
-        <button type="submit" name="reset_adm">
-            Resetar Senhas dos Administradores
-        </button>
-
-    </form>
+</form>
 
 </body>
-
 </html>

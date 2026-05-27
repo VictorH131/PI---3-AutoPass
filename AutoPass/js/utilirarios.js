@@ -45,7 +45,7 @@ Gustavo de Oliveira
 </div>
 
 <img class="about-image"
-src="src/img/autopass.png">
+src="src/img/autopass.jpeg">
 
 `
 

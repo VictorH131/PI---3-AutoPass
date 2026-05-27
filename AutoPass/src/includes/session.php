@@ -10,7 +10,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 }
 
 // Dados do usuário
-$idUsuario = $_SESSION['usuario']['id'];
+$idUsuario = $_SESSION['usuario']['id_usuario'];
 $nomeUsuario = $_SESSION['usuario']['nome'];
 $sobrenome = $_SESSION['usuario']['sobrenome'];
 $email = $_SESSION['usuario']['email'];
