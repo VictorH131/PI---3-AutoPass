@@ -25,7 +25,7 @@ CREATE TABLE notificacoes (
     id_usuario INT,
     titulo VARCHAR(100),
     mensagem TEXT,
-    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP 
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario)
 );
 
@@ -42,26 +42,46 @@ CREATE TABLE veiculos (
 
 CREATE TABLE acessos (
     id_acesso INT AUTO_INCREMENT PRIMARY KEY,
-    id_veiculo INT,
+    id_veiculo INT NOT NULL,
+    id_cancela INT NOT NULL,
     tipo ENUM('entrada', 'saida'),
-    localizacao VARCHAR(100),
     data_acesso DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('autorizado', 'negado'),
+    FOREIGN KEY (id_veiculo) REFERENCES veiculos (id_veiculo),
+    FOREIGN KEY (id_cancela) REFERENCES cancelas (id_cancela)
+);
+
+CREATE TABLE rfids (
+    id_rfid INT AUTO_INCREMENT PRIMARY KEY,
+    codigo_rfid VARCHAR(100) UNIQUE NOT NULL,
+    id_veiculo INT,
+    status ENUM(
+        'ativo',
+        'bloqueado',
+        'inativo'
+    ) DEFAULT 'ativo',
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_veiculo) REFERENCES veiculos (id_veiculo)
 );
 
+CREATE TABLE cancelas (
+    id_cancela INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    localizacao VARCHAR(100),
+    status ENUM(
+        'aberta',
+        'fechada',
+        'manutencao'
+    ) DEFAULT 'fechada'
+);
 
-
-
-
-
-
-
-
-
-
-
-
+CREATE TABLE eventos_sistema (
+    id_evento INT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(50),
+    descricao TEXT,
+    nivel ENUM('info', 'alerta', 'erro') DEFAULT 'info',
+    data_evento DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 CREATE TABLE vagas (
     id_vaga INT AUTO_INCREMENT PRIMARY KEY,
@@ -76,8 +96,6 @@ CREATE TABLE vagas (
         'reservada'
     ) DEFAULT 'livre'
 );
-
-
 
 CREATE TABLE estacionamento (
     id_estacionamento INT AUTO_INCREMENT PRIMARY KEY,
@@ -101,7 +119,6 @@ CREATE TABLE tarifas (
     ativo BOOLEAN DEFAULT TRUE
 );
 
-
 CREATE TABLE pagamentos (
     id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
     id_estacionamento INT,
@@ -120,19 +137,10 @@ CREATE TABLE historico (
     FOREIGN KEY (id_cliente) REFERENCES usuarios (id_usuario)
 );
 
-
 CREATE TABLE sensores (
     id_sensor INT AUTO_INCREMENT PRIMARY KEY,
     codigo VARCHAR(50),
     tipo VARCHAR(50),
     setor VARCHAR(20),
     status ENUM('online', 'offline') DEFAULT 'online'
-);
-
-CREATE TABLE logs_sensores (
-    id_log INT AUTO_INCREMENT PRIMARY KEY,
-    id_sensor INT,
-    evento TEXT,
-    data_evento DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_sensor) REFERENCES sensores (id_sensor)
 );

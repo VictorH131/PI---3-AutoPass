@@ -18,8 +18,6 @@
     <!-- css -->
     <link rel="stylesheet" href="../style/estilo.css">
     <style>
-       
-
         /* LAYOUT */
         .container-app {
             display: flex;
@@ -211,38 +209,58 @@
 
                 <!-- ESQUERDA (sempre existe) -->
                 <div>
-                    <?php if (!empty($horaAtual)): ?>
-                        <strong>Bem-vindo, <?= $_SESSION['usuario']['nome'] ?></strong><br>
+                    <!-- ESQUERDA -->
 
+                    <div>
 
+                        <?php if (!empty($horaAtual)): ?>
 
-                        <?php
-                        date_default_timezone_set('America/Sao_Paulo');
+                            <strong>
+                                Bem-vindo, <?= $_SESSION['usuario']['nome'] ?>
+                            </strong>
+                            <br>
 
-                        $meses = [
-                            1 => 'janeiro',
-                            'fevereiro',
-                            'março',
-                            'abril',
-                            'maio',
-                            'junho',
-                            'julho',
-                            'agosto',
-                            'setembro',
-                            'outubro',
-                            'novembro',
-                            'dezembro'
-                        ];
+                            <?php
 
-                        $dia = date('d');
-                        $mes = (int) date('m');
-                        $ano = date('Y');
-                        $hora = date('H:i');
-                        ?>
+                            date_default_timezone_set('America/Sao_Paulo');
 
-                        <?= $dia . " de " . $meses[$mes] . " de " . $ano . " às " . $hora ?>
+                            $meses = [
+                                1 => 'janeiro',
+                                'fevereiro',
+                                'março',
+                                'abril',
+                                'maio',
+                                'junho',
+                                'julho',
+                                'agosto',
+                                'setembro',
+                                'outubro',
+                                'novembro',
+                                'dezembro'
+                            ];
 
-                    <?php endif; ?>
+                            $dia = date('d');
+                            $mes = (int) date('m');
+                            $ano = date('Y');
+                            $hora = date('H:i');
+
+                            ?>
+
+                            <?= $dia . " de " . $meses[$mes] . " de " . $ano . " às " . $hora ?>
+
+                        <?php else: ?>
+
+                            <div class="search-box">
+
+                                <i class="bi bi-search"></i>
+
+                                <input type="text" id="pesquisaGlobal" placeholder="Pesquisar..." class="form-control">
+
+                            </div>
+
+                        <?php endif; ?>
+
+                    </div>
 
                 </div>
 

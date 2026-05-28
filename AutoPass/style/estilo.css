@@ -1501,3 +1501,610 @@
     }
 
 }
+
+
+
+
+/* ============= Pesquisa =============== */
+
+.search-box{
+position:relative;
+width:350px;
+}
+
+.search-box i{
+position:absolute;
+left:14px;
+top:50%;
+transform:translateY(-50%);
+color:#6c757d;
+}
+
+.search-box input{
+padding-left:40px;
+border-radius:30px;
+border:none;
+background:#f5f7fa;
+height:42px;
+}
+
+.search-box input:focus{
+box-shadow:none;
+border:1px solid #0d6efd;
+background:white;
+}
+
+/* ============= Main veiculos =============== */
+
+
+.drawer{
+
+position:fixed;
+top:0;
+right:-450px;
+
+width:420px;
+height:100vh;
+
+background:#f7f8fa;
+
+overflow-y:auto;
+
+z-index:999;
+
+transition:.35s;
+
+box-shadow:-10px 0 35px rgba(0,0,0,.15);
+
+box-sizing:border-box;
+
+}
+
+.drawer *{
+
+box-sizing:border-box;
+
+}
+
+.drawer.ativo{
+
+right:0;
+
+}
+
+.drawer-header{
+
+padding:25px;
+
+background:linear-gradient(
+135deg,
+#0066ff,
+#004fd1
+);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.drawer-body{
+
+padding:25px;
+
+}
+
+.drawer hr{
+
+border:none;
+height:1px;
+background:#e7e7e7;
+margin:20px 0;
+
+}
+
+.titulo{
+
+font-size:12px;
+font-weight:700;
+color:#8a8a8a;
+margin-bottom:12px;
+
+}
+
+.box-info{
+
+background:white;
+
+padding:15px;
+
+border-radius:12px;
+
+border:1px solid #ececec;
+
+height:100%;
+
+}
+
+.box-info small{
+
+display:block;
+
+font-size:11px;
+
+font-weight:700;
+
+margin-bottom:5px;
+
+color:#888;
+
+}
+
+.proprietario-card{
+
+display:flex;
+
+gap:15px;
+
+align-items:center;
+
+padding:15px;
+
+background:white;
+
+border-radius:12px;
+
+}
+
+.avatar{
+
+width:50px;
+height:50px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:2px solid #0066ff;
+
+}
+
+.linha{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:10px 0;
+
+font-size:14px;
+
+}
+
+.historico-item{
+
+display:flex;
+
+gap:12px;
+
+padding:12px;
+
+background:white;
+
+border-radius:12px;
+
+margin-bottom:10px;
+
+}
+
+.icone{
+
+width:35px;
+height:35px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+color:white;
+
+background:#0066ff;
+
+flex-shrink:0;
+
+}
+
+.saida{
+
+background:#dc3545;
+
+}
+
+
+/* =========================
+HOME DASHBOARD
+========================= */
+
+.dashboard-home #graficoFluxo {
+
+    width: 100%;
+    height: 350px !important;
+
+}
+
+/* CARDS TOPO */
+.dashboard-home .dashboard-card {
+
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 18px;
+
+    padding: 22px 18px;
+
+    position: relative;
+
+    height: 160px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s ease;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+
+}
+
+.dashboard-home .dashboard-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+
+}
+
+.dashboard-home .card-title {
+
+    text-align: center;
+
+    font-size: 16px;
+
+    line-height: 1.15;
+
+    color: #4b4b4b;
+
+    margin-bottom: 10px;
+
+    font-weight: 500;
+
+}
+
+.dashboard-home .card-number {
+
+    font-size: 54px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+}
+
+.dashboard-home .card-icon {
+
+    position: absolute;
+
+    right: 16px;
+    bottom: 10px;
+
+    font-size: 28px;
+
+}
+
+.dashboard-home .status-critico {
+
+    color: #d10000;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+/* =========================
+SETORES
+========================= */
+
+.dashboard-home .setores-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(85px, 1fr));
+
+    gap: 8px;
+
+    border: 1px solid #7b6dff;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    background: #fff;
+
+    width: 100%;
+
+    max-width: 520px;
+
+}
+
+.dashboard-home .setor-box {
+
+    aspect-ratio: 1/1;
+
+    width: 100%;
+
+    min-height: 72px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: clamp(22px, 3vw, 36px);
+
+    font-weight: 300;
+
+    transition: .2s ease;
+
+}
+
+.dashboard-home .setor-box:hover {
+
+    transform: scale(1.04);
+
+}
+
+/* CORES */
+
+.dashboard-home .setor-verde {
+
+    background: #59c97b;
+
+}
+
+.dashboard-home .setor-amarelo {
+
+    background: #e69b2d;
+
+}
+
+.dashboard-home .setor-azul {
+
+    background: #6b93e8;
+
+}
+
+.dashboard-home .setor-vermelho {
+
+    background: #b8252b;
+
+}
+
+/* =========================
+ÁREA DIREITA
+========================= */
+
+.dashboard-home .info-patio {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+    padding-left: 6px;
+
+}
+
+/* TITULOS */
+
+.dashboard-home .info-title {
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    color: #1d1d1d;
+
+    margin-bottom: 18px;
+
+}
+
+/* =========================
+RESTANTE
+========================= */
+
+.dashboard-home .restante-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+}
+
+.dashboard-home .restante-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+    color: #2b2b2b;
+
+}
+
+.dashboard-home .restante-dot {
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+}
+
+.dashboard-home .restante-dot.verde {
+
+    background: #59c97b;
+
+}
+
+.dashboard-home .restante-dot.azul {
+
+    background: #5d86e8;
+
+}
+
+.dashboard-home .restante-dot.amarelo {
+
+    background: #e49b2d;
+
+}
+
+.dashboard-home .restante-dot.vermelho {
+
+    background: #c52026;
+
+}
+
+/* =========================
+VAGAS
+========================= */
+
+.dashboard-home .vagas-wrapper {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.dashboard-home .vaga-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #ececec;
+
+}
+
+.dashboard-home .vaga-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.dashboard-home .vaga-circle {
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    border: 2px solid #7c7c7c;
+
+    background: transparent;
+
+    flex-shrink: 0;
+
+}
+
+.dashboard-home .vaga-circle.total {
+
+    background: #000;
+
+    border-color: #000;
+
+}
+
+.dashboard-home .vaga-info span {
+
+    font-size: 18px;
+
+    color: #222;
+
+}
+
+.dashboard-home .vaga-info strong {
+
+    margin-left: auto;
+
+    min-width: 55px;
+
+    text-align: left;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    color: #111;
+
+}
+
+/* =========================
+DIMINUI ESPAÇO ENTRE COLUNAS
+========================= */
+
+.dashboard-home .row.align-items-center {
+
+    --bs-gutter-x: .45rem;
+
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+
+@media(max-width:991px){
+
+    .dashboard-home .restante-grid {
+
+        gap: 18px;
+
+    }
+
+    .dashboard-home .setores-grid {
+
+        max-width: 100%;
+
+    }
+
+}

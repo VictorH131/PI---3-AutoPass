@@ -1,79 +1,74 @@
+<div class="footer">
 
-       <div class="footer">
+    <div class="container">
 
-            <div class="container">
+        <div class="row align-items-start">
 
-                <div class="row align-items-start">
+            <!-- LOGO -->
 
-                    <!-- LOGO -->
+            <div class="col-lg-6">
 
-                    <div class="col-lg-6">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="../src/img/logo/fundo_footer.png" style="height:60px;margin-right:15px;">
+                </div>
 
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="../src/img/logo/fundo_footer.png" style="height:60px;margin-right:15px;">
+                <p class="text-secondary mt-3 pe-5">
+                    Demonstrando a transformação digital na
+                    mobilidade urbana através de
+                    infraestrutura inteligente e conectada.
+                </p>
+
+                <div class="social">
+
+                    <a href="https://github.com/VictorH131/PI---3-AutoPass" target="_blank"
+                        style="color:inherit;text-decoration:none;">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- LADO DIREITO -->
+
+            <div class="col-lg-6">
+
+                <div class="row justify-content-end">
+
+                    <div class="col-md-5 footer-links">
+
+                        <div class="footer-title">
+                            UTILITÁRIOS
                         </div>
 
-                        <p class="text-secondary mt-3 pe-5">
-                            Demonstrando a transformação digital na
-                            mobilidade urbana através de
-                            infraestrutura inteligente e conectada.
-                        </p>
-
-                        <div class="social">
-
-                            <a href="https://github.com/VictorH131/PI---3-AutoPass" target="_blank"
-                                style="color:inherit;text-decoration:none;">
-                                <i class="bi bi-github"></i>
-                            </a>
-
-                        </div>
+                        <p>Sobre Nós</p>
+                        <p>Política de Privacidade</p>
+                        <p>Termos de Uso</p>
 
                     </div>
 
 
-                    <!-- LADO DIREITO -->
+                    <div class="col-md-5 footer-links">
 
-                    <div class="col-lg-6">
-
-                        <div class="row justify-content-end">
-
-                            <div class="col-md-5 footer-links">
-
-                                <div class="footer-title">
-                                    UTILITÁRIOS
-                                </div>
-
-                                <p>Sobre Nós</p>
-                                <p>Política de Privacidade</p>
-                                <p>Termos de Uso</p>
-
-                            </div>
-
-
-                            <div class="col-md-5 footer-links">
-
-                                <div class="footer-title">
-                                    CONTATO
-                                </div>
-
-                                <p>
-                                    <i class="bi bi-envelope"></i>
-                                    autopass@gmail.com
-                                </p>
-
-                                <p>
-                                    <i class="bi bi-telephone"></i>
-                                    (19)99999-9999
-                                </p>
-
-                                <p>
-                                    <i class="bi bi-geo-alt"></i>
-                                    itapira/SP - Brasil
-                                </p>
-
-                            </div>
-
+                        <div class="footer-title">
+                            CONTATO
                         </div>
+
+                        <p>
+                            <i class="bi bi-envelope"></i>
+                            autopasscontato@gmail.com
+                        </p>
+
+                        <p>
+                            <i class="bi bi-telephone"></i>
+                            (19)99999-9999
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt"></i>
+                            itapira/SP - Brasil
+                        </p>
 
                     </div>
 
@@ -81,23 +76,27 @@
 
             </div>
 
-            <div class="footer-bottom text-center">
-
-                © 2026 AutoPass • Sistema Inteligente de Estacionamento
-
-            </div>
         </div>
 
-    <script>
+    </div>
 
-// popup.js
+    <div class="footer-bottom text-center">
 
-const popupData = {
-    "Sobre Nós": {
+        © 2026 AutoPass • Sistema Inteligente de Estacionamento
 
-        icon: "bi-buildings",
+    </div>
+</div>
 
-        html: `
+<script>
+
+    // popup.js
+
+    const popupData = {
+        "Sobre Nós": {
+
+            icon: "bi-buildings",
+
+            html: `
 
 <p>
 O AutoPass surgiu como um projeto acadêmico focado na modernização
@@ -141,12 +140,12 @@ src="../src/img/autopass.jpeg">
 
 `
 
-    },
-    "Política de Privacidade": {
+        },
+        "Política de Privacidade": {
 
-        icon: "bi-shield-lock",
+            icon: "bi-shield-lock",
 
-        html: `
+            html: `
 
 <h5>Política de Privacidade</h5>
 
@@ -183,14 +182,14 @@ para acompanhar melhorias da plataforma e mudanças legais.
 
 `
 
-    },
+        },
 
 
-    "Termos de Uso": {
+        "Termos de Uso": {
 
-        icon: "bi-file-earmark-text",
+            icon: "bi-file-earmark-text",
 
-        html: `
+            html: `
 
 <h5>Termos de Uso</h5>
 
@@ -228,16 +227,16 @@ representa aceitação automática dos novos termos estabelecidos.
 
 `
 
-    }
+        }
 
-};
+    };
 
 
-// criar popup
+    // criar popup
 
-const popup = document.createElement("div");
+    const popup = document.createElement("div");
 
-popup.innerHTML = `
+    popup.innerHTML = `
 
 <div class="popup-overlay">
 
@@ -265,312 +264,353 @@ popup.innerHTML = `
 
 `;
 
-document.body.appendChild(popup);
+    document.body.appendChild(popup);
 
 
-const overlay = document.querySelector(".popup-overlay");
+    const overlay = document.querySelector(".popup-overlay");
 
-const title = document.querySelector(".popup-box h3");
+    const title = document.querySelector(".popup-box h3");
 
-const content = document.querySelector(".popup-content");
+    const content = document.querySelector(".popup-content");
 
-const icon = document.querySelector(".popup-icon i");
+    const icon = document.querySelector(".popup-icon i");
 
 
 
-document
-    .querySelectorAll(".footer-links p, .policy-link")
-    .forEach(item => {
+    document
+        .querySelectorAll(".footer-links p, .policy-link")
+        .forEach(item => {
 
-        item.addEventListener("click", () => {
+            item.addEventListener("click", () => {
 
-            const texto = item.innerText.trim();
+                const texto = item.innerText.trim();
 
-            const data = popupData[texto];
+                const data = popupData[texto];
 
-            if (!data) return;
+                if (!data) return;
 
-            title.innerText = texto;
+                title.innerText = texto;
 
-            content.innerHTML = data.html;
+                content.innerHTML = data.html;
 
-            icon.className = `bi ${data.icon}`;
+                icon.className = `bi ${data.icon}`;
 
-            overlay.classList.add("show");
+                overlay.classList.add("show");
 
-            document.body.style.overflow = "hidden";
+                document.body.style.overflow = "hidden";
+
+            });
 
         });
+
+
+
+    function fechar() {
+
+        overlay.classList.remove("show");
+
+        document.body.style.overflow = "auto";
+
+    }
+
+    document
+        .querySelector(".popup-close")
+        .addEventListener("click", fechar);
+
+
+    overlay.addEventListener("click", (e) => {
+
+        if (e.target === overlay) {
+
+            fechar();
+
+        }
 
     });
 
 
 
-function fechar() {
 
-    overlay.classList.remove("show");
+    // CSS automático
 
-    document.body.style.overflow = "auto";
+    const style = document.createElement("style");
 
-}
+    style.innerHTML = `
 
-document
-    .querySelector(".popup-close")
-    .addEventListener("click", fechar);
+            .popup-overlay{
+
+            position:fixed;
+            top:0;
+            left:0;
+
+            width:100%;
+            height:100%;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            background:rgba(0,0,0,.65);
+
+            backdrop-filter:blur(10px);
+
+            opacity:0;
+            visibility:hidden;
+
+            transition:.4s;
+
+            z-index:99999;
+
+            }
+
+            .popup-overlay.show{
+
+            opacity:1;
+            visibility:visible;
+
+            }
+
+            .popup-box{
+
+            width:800px;
+            max-width:95%;
+
+            max-height:85vh;
+
+            overflow-y:auto;
+
+            padding:40px;
+
+            background:#1f1f22;
+
+            color:white;
+
+            border-radius:30px;
+
+            position:relative;
+
+            transform:translateY(50px);
+
+            transition:.4s;
+
+            border:1px solid rgba(255,255,255,.1);
+
+            box-shadow:
+            0 25px 60px rgba(0,0,0,.4);
+
+            }
 
 
-overlay.addEventListener("click", (e) => {
+            .popup-box{
 
-    if (e.target === overlay) {
+            overflow-y:auto;
+            overflow-x:hidden;
+            word-wrap:break-word;
+            }
 
-        fechar();
+
+
+
+
+            .popup-overlay.show .popup-box{
+
+            transform:translateY(0);
+
+            }
+
+            .popup-box::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:-150px;
+            right:-150px;
+
+            width:300px;
+            height:300px;
+
+            background:
+            linear-gradient(
+            135deg,
+            #0057d9,
+            #347cff
+            );
+
+            opacity:.18;
+
+            border-radius:50%;
+
+            }
+
+            .popup-close{
+
+            position:absolute;
+
+            right:25px;
+            top:25px;
+
+            border:none;
+            background:none;
+
+            color:white;
+
+            font-size:20px;
+
+            cursor:pointer;
+
+            }
+
+            .popup-icon{
+
+            width:70px;
+            height:70px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:20px;
+
+            font-size:30px;
+
+            margin-bottom:25px;
+
+            background:
+            linear-gradient(
+            135deg,
+            #0057d9,
+            #347cff
+            );
+
+            }
+
+            .popup-box h3{
+
+            font-size:32px;
+            margin-bottom:30px;
+            font-weight:700;
+
+            }
+
+            .popup-content{
+
+            color:#d1d1d1;
+
+            line-height:1.8;
+
+            }
+
+            .popup-content h5{
+
+            margin-top:25px;
+
+            color:#4d95ff;
+
+            }
+
+            .popup-content ul{
+
+            padding-left:20px;
+
+            }
+
+            .team-box{
+
+            margin-top:30px;
+
+            padding:20px;
+
+            background:rgba(255,255,255,.05);
+
+            border-radius:20px;
+
+            }
+
+            .member{
+
+            margin-top:10px;
+
+            display:flex;
+            align-items:center;
+            gap:10px;
+
+            }
+
+            .member i{
+
+            color:#4d95ff;
+
+            }
+
+            .about-image{
+
+            width:100%;
+
+            margin-top:30px;
+
+            border-radius:20px;
+
+            }
+
+            .popup-box::-webkit-scrollbar{
+
+            width:8px;
+
+            }
+
+            .popup-box::-webkit-scrollbar-thumb{
+
+            background:#0057d9;
+            border-radius:20px;
+
+            }
+
+            `;
+
+    document.head.appendChild(style);
+
+
+
+    const pesquisa =
+        document.getElementById(
+            'pesquisaGlobal'
+        );
+
+    if (pesquisa) {
+
+        pesquisa.addEventListener(
+            'keyup',
+            function () {
+
+                let texto =
+                    this.value.toLowerCase();
+
+                document
+                    .querySelectorAll(
+                        'tbody tr'
+                    )
+                    .forEach(linha => {
+
+                        let conteudo =
+                            linha.textContent
+                                .toLowerCase();
+
+                        linha.style.display =
+                            conteudo.includes(texto)
+                                ?
+                                ''
+                                :
+                                'none';
+
+                    });
+
+            });
 
     }
 
-});
 
-
-
-
-// CSS automático
-
-const style = document.createElement("style");
-
-style.innerHTML = `
-
-.popup-overlay{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:rgba(0,0,0,.65);
-
-backdrop-filter:blur(10px);
-
-opacity:0;
-visibility:hidden;
-
-transition:.4s;
-
-z-index:99999;
-
-}
-
-.popup-overlay.show{
-
-opacity:1;
-visibility:visible;
-
-}
-
-.popup-box{
-
-width:800px;
-max-width:95%;
-
-max-height:85vh;
-
-overflow-y:auto;
-
-padding:40px;
-
-background:#1f1f22;
-
-color:white;
-
-border-radius:30px;
-
-position:relative;
-
-transform:translateY(50px);
-
-transition:.4s;
-
-border:1px solid rgba(255,255,255,.1);
-
-box-shadow:
-0 25px 60px rgba(0,0,0,.4);
-
-}
-
-
-.popup-box{
-
-overflow-y:auto;
-overflow-x:hidden;
-word-wrap:break-word;
-}
-
-
-
-
-
-.popup-overlay.show .popup-box{
-
-transform:translateY(0);
-
-}
-
-.popup-box::before{
-
-content:"";
-
-position:absolute;
-
-top:-150px;
-right:-150px;
-
-width:300px;
-height:300px;
-
-background:
-linear-gradient(
-135deg,
-#0057d9,
-#347cff
-);
-
-opacity:.18;
-
-border-radius:50%;
-
-}
-
-.popup-close{
-
-position:absolute;
-
-right:25px;
-top:25px;
-
-border:none;
-background:none;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-}
-
-.popup-icon{
-
-width:70px;
-height:70px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:20px;
-
-font-size:30px;
-
-margin-bottom:25px;
-
-background:
-linear-gradient(
-135deg,
-#0057d9,
-#347cff
-);
-
-}
-
-.popup-box h3{
-
-font-size:32px;
-margin-bottom:30px;
-font-weight:700;
-
-}
-
-.popup-content{
-
-color:#d1d1d1;
-
-line-height:1.8;
-
-}
-
-.popup-content h5{
-
-margin-top:25px;
-
-color:#4d95ff;
-
-}
-
-.popup-content ul{
-
-padding-left:20px;
-
-}
-
-.team-box{
-
-margin-top:30px;
-
-padding:20px;
-
-background:rgba(255,255,255,.05);
-
-border-radius:20px;
-
-}
-
-.member{
-
-margin-top:10px;
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.member i{
-
-color:#4d95ff;
-
-}
-
-.about-image{
-
-width:100%;
-
-margin-top:30px;
-
-border-radius:20px;
-
-}
-
-.popup-box::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-.popup-box::-webkit-scrollbar-thumb{
-
-background:#0057d9;
-border-radius:20px;
-
-}
-
-`;
-
-document.head.appendChild(style);
-        
-    </script>
+</script>
 </body>
+
 </html>
