@@ -84,39 +84,48 @@ GROUP BY h
 PEsquisa de setores
 ========================= */
 $setores = $conn->query("
-SELECT 
-    setor,
 
-    COUNT(*) AS total_vagas,
+SELECT
+
+    s.nome AS setor,
+
+    COUNT(v.id_vaga) AS total_vagas,
 
     SUM(
-        CASE 
-            WHEN status='ocupada' 
-            THEN 1 
-            ELSE 0 
+        CASE
+            WHEN v.status = 'ocupada'
+            THEN 1
+            ELSE 0
         END
     ) AS vagas_ocupadas,
 
     SUM(
-        CASE 
-            WHEN status='livre' 
-            THEN 1 
-            ELSE 0 
+        CASE
+            WHEN v.status = 'livre'
+            THEN 1
+            ELSE 0
         END
     ) AS vagas_livres,
 
     SUM(
-        CASE 
-            WHEN pcd=1 
-            THEN 1 
-            ELSE 0 
+        CASE
+            WHEN v.pcd = 1
+            THEN 1
+            ELSE 0
         END
     ) AS vagas_pcd
 
-FROM vagas
+FROM setores s
 
-GROUP BY setor
-ORDER BY setor
+LEFT JOIN vagas v
+ON v.id_setor = s.id_setor
+
+WHERE s.ativo = 1
+
+GROUP BY s.id_setor, s.nome
+
+ORDER BY s.nome
+
 ")->fetchAll();
 
 /* =========================

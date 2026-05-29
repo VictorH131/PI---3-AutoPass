@@ -88,18 +88,26 @@ CREATE TABLE eventos_sistema (
     data_evento DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+
+CREATE TABLE setores (
+    id_setor INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(10) UNIQUE NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE vagas (
     id_vaga INT AUTO_INCREMENT PRIMARY KEY,
-    codigo VARCHAR(20),
-    setor VARCHAR(30),
+    id_setor INT NOT NULL,
+    codigo VARCHAR(20) UNIQUE,
     nome VARCHAR(50),
     ativo BOOLEAN DEFAULT TRUE,
     pcd BOOLEAN DEFAULT FALSE,
-    status ENUM(
-        'livre',
-        'ocupada',
-        'reservada'
-    ) DEFAULT 'livre'
+    status ENUM('livre', 'ocupada') DEFAULT 'livre',
+    x INT DEFAULT 0,
+    y INT DEFAULT 0,
+    rotacao INT DEFAULT 0,
+    FOREIGN KEY (id_setor) REFERENCES setores (id_setor)
 );
 
 CREATE TABLE estacionamento (
@@ -148,4 +156,25 @@ CREATE TABLE sensores (
     tipo VARCHAR(50),
     setor VARCHAR(20),
     status ENUM('online', 'offline') DEFAULT 'online'
+);
+
+
+CREATE TABLE enderecos (
+    id_endereco INT AUTO_INCREMENT PRIMARY KEY,
+
+    id_usuario INT NOT NULL,
+
+    cep VARCHAR(9),
+    rua VARCHAR(150),
+    numero VARCHAR(20),
+    complemento VARCHAR(100),
+    bairro VARCHAR(100),
+    cidade VARCHAR(100),
+    estado VARCHAR(2),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_usuario)
+    REFERENCES usuarios(id_usuario)
+    ON DELETE CASCADE
 );

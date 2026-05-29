@@ -289,7 +289,12 @@ $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                     <?php foreach ($veiculos as $dados) { ?>
 
-                        <tr data-status="<?= $dados['status'] ?>" data-cor="<?= strtolower($dados['cor']) ?>">
+                        <tr class="linhaEvento" data-placa="<?= strtolower($dados['placa']) ?>"
+                            data-modelo="<?= strtolower($dados['modelo']) ?>"
+                            data-marca="<?= strtolower($dados['marca']) ?>" data-cor="<?= strtolower($dados['cor']) ?>"
+                            data-proprietario="<?= strtolower($dados['nome'] . ' ' . $dados['sobrenome']) ?>"
+                            data-status="<?= strtolower($dados['status']) ?>"
+                            data-rfid="<?= strtolower($dados['codigo_rfid'] ?? '') ?>">
 
                             <td class="p-4">
 
@@ -432,7 +437,7 @@ $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                     <i class="bi bi-three-dots"></i>
 
-                                    </button>
+                                </button>
 
                             </td>
 
@@ -513,7 +518,44 @@ $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <script src="../js/veiculos.js"></script>
 <script src="../js/editar_veiculosADM.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 
+const pesquisa = document.getElementById('pesquisaGlobal');
+
+if(pesquisa){
+
+    pesquisa.addEventListener('keyup', function(){
+
+        const texto = this.value.toLowerCase();
+
+        document
+        .querySelectorAll('.linhaEvento')
+        .forEach(linha => {
+
+            const dados = [
+
+                linha.dataset.placa,
+                linha.dataset.modelo,
+                linha.dataset.marca,
+                linha.dataset.cor,
+                linha.dataset.proprietario,
+                linha.dataset.status,
+                linha.dataset.rfid
+
+            ].join(' ');
+
+            linha.style.display =
+                dados.includes(texto)
+                ? ''
+                : 'none';
+
+        });
+
+    });
+
+}
+
+</script>
 <?php
 include '../src/includes/footer.php';
 ?>
