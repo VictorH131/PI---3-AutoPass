@@ -1537,28 +1537,6 @@ background:white;
 /* ============= Main veiculos =============== */
 
 
-.drawer{
-
-position:fixed;
-top:0;
-right:-450px;
-
-width:420px;
-height:100vh;
-
-background:#f7f8fa;
-
-overflow-y:auto;
-
-z-index:999;
-
-transition:.35s;
-
-box-shadow:-10px 0 35px rgba(0,0,0,.15);
-
-box-sizing:border-box;
-
-}
 
 .drawer *{
 
@@ -1657,6 +1635,376 @@ background:white;
 border-radius:12px;
 
 }
+
+.drawer{
+
+    position: fixed;
+
+    top: 0;
+    right: -520px;
+
+    width: 480px;
+    height: 100vh;
+
+    background: #fff;
+
+    overflow-y: auto;
+
+    transition: right .25s ease;
+
+    z-index: 9999;
+
+    box-shadow:
+    -10px 0 35px rgba(0,0,0,.15);
+
+}
+.drawer.ativo{
+
+    right: 0 !important;
+
+}
+
+/* =========================================
+OVERLAY
+========================================= */
+
+.evadm-overlay{
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.38);
+
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .25s ease;
+
+    z-index: 99998;
+
+}
+
+.evadm-overlay.ativo{
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =========================================
+DRAWER
+========================================= */
+
+.evadm-drawer{
+
+    position: absolute;
+
+    top: 0;
+    right: -560px;
+
+    width: 520px;
+
+    max-width: 100%;
+
+    height: 100vh;
+
+    background: #ffffff;
+
+    overflow-y: auto;
+
+    transition: .3s ease;
+
+    box-shadow:
+    -15px 0 35px rgba(0,0,0,.16);
+
+}
+
+.evadm-drawer.ativo{
+
+    right: 0;
+
+}
+
+
+/* =========================================
+SCROLL
+========================================= */
+
+.evadm-drawer::-webkit-scrollbar{
+
+    width: 7px;
+
+}
+
+.evadm-drawer::-webkit-scrollbar-thumb{
+
+    background: #d4d4d4;
+
+    border-radius: 20px;
+
+}
+
+
+/* =========================================
+HEADER
+========================================= */
+
+.evadm-header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0d6efd,
+        #0b5ed7
+    );
+
+    padding: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+}
+
+.evadm-body{
+
+    padding: 24px;
+
+}
+
+
+/* =========================================
+TÍTULOS
+========================================= */
+
+.evadm-titulo{
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #6c757d;
+
+    margin-bottom: 14px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+INPUTS
+========================================= */
+
+.evadm-body .form-control{
+
+    min-height: 48px;
+
+    border-radius: 14px;
+
+    border: 1px solid #dcdcdc;
+
+    box-shadow: none !important;
+
+    transition: .2s ease;
+
+}
+
+.evadm-body .form-control:focus{
+
+    border-color: #0d6efd;
+
+    box-shadow:
+    0 0 0 4px rgba(13,110,253,.12) !important;
+
+}
+
+
+/* =========================================
+PROPRIETÁRIO
+========================================= */
+
+.evadm-proprietario-card{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+
+}
+
+.evadm-avatar{
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #f1f1f1;
+
+}
+
+
+/* =========================================
+DADOS
+========================================= */
+
+.evadm-dados{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.evadm-linha{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #ececec;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+HISTÓRICO
+========================================= */
+
+#evadmHistorico{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.evadm-historico-item{
+
+    display: flex;
+
+    gap: 14px;
+
+    padding: 14px;
+
+    border-radius: 16px;
+
+    background: #f8f9fa;
+
+}
+
+.evadm-icone{
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #fff;
+
+}
+
+.evadm-icone.entrada{
+
+    background: #198754;
+
+}
+
+.evadm-icone.saida{
+
+    background: #dc3545;
+
+}
+
+
+/* =========================================
+BOTÃO SALVAR
+========================================= */
+
+#evadmSalvar{
+
+    min-height: 50px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+RESPONSIVO
+========================================= */
+
+@media(max-width: 768px){
+
+    .evadm-drawer{
+
+        width: 100%;
+
+        right: -100%;
+
+    }
+
+    .evadm-body{
+
+        padding: 18px;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .avatar{
 

@@ -14,20 +14,18 @@ VALUES
 
 
 INSERT INTO veiculos
-(id_usuarios,placa,marca,modelo,cor,ano)
+(id_usuarios, placa, marca, modelo, cor, ano, status)
 VALUES
-(1,'ABC1D23','Toyota','Corolla','Prata',2020),
-(2,'EFG4H56','Renault ','Kwid ','Preto',2019),
-(3,'IJK7L89','Chevrolet','Onix','Branco',2022),
-(4,'AAA1B11','Fiat','Uno','Branco',2015),
-(5,'BBB2C22','Volkswagen','Gol','Prata',2017),
-(6,'CCC3D33','Hyundai','HB20','Azul',2020),
-(7,'DDD4E44','Renault','Sandero','Cinza',2018),
-(8,'EEE5F55','Ford','Ka','Preto',2019),
-(9,'FFF6G66','Toyota','Yaris','Branco',2022),
-(10,'GGG7H77','Honda','Fit','Vermelho',2021);
-
-
+(1,'ABC1D23','Toyota','Corolla','Prata',2020,'ativo'),
+(2,'EFG4H56','Renault','Kwid','Preto',2019,'ativo'),
+(3,'IJK7L89','Chevrolet','Onix','Branco',2022,'ativo'),
+(4,'AAA1B11','Fiat','Uno','Branco',2015,'ativo'),
+(5,'BBB2C22','Volkswagen','Gol','Prata',2017,'ativo'),
+(6,'CCC3D33','Hyundai','HB20','Azul',2020,'ativo'),
+(7,'DDD4E44','Renault','Sandero','Cinza',2018,'ativo'),
+(8,'EEE5F55','Ford','Ka','Preto',2019,'ativo'),
+(9,'FFF6G66','Toyota','Yaris','Branco',2022,'ativo'),
+(10,'GGG7H77','Honda','Fit','Vermelho',2021,'ativo');
 
 INSERT INTO rfids
 (codigo_rfid,id_veiculo,status)

@@ -49,7 +49,6 @@ $stmtCores = $conn->prepare($sqlCores);
 $stmtCores->execute();
 
 $cores = $stmtCores->fetchAll(PDO::FETCH_ASSOC);
-
 /* VEÍCULOS */
 $sql = "
 
@@ -71,27 +70,20 @@ MAX(a.data_acesso) ultimo_acesso,
 
 GROUP_CONCAT(
 
-CONCAT(
-a.tipo,
-'|',
-c.localizacao,
-'|',
-DATE_FORMAT(
-a.data_acesso,
-'%d/%m/%Y %H:%i'
-)
-)
+    CONCAT(
+        a.tipo,
+        '|',
+        c.localizacao,
+        '|',
+        DATE_FORMAT(a.data_acesso, '%d/%m/%Y %H:%i')
+    )
 
-ORDER BY a.data_acesso DESC
-SEPARATOR '###'
+    ORDER BY a.data_acesso DESC
+    SEPARATOR '###'
 
 ) historico,
 
-CASE
-WHEN u.status='bloqueado'
-THEN 'bloqueado'
-ELSE 'ativo'
-END status
+v.status AS status
 
 FROM veiculos v
 
@@ -108,6 +100,7 @@ LEFT JOIN rfids r
 ON r.id_veiculo = v.id_veiculo
 
 GROUP BY
+
 v.id_veiculo,
 r.codigo_rfid,
 u.nome,
@@ -116,11 +109,12 @@ u.email,
 u.telefone,
 u.foto,
 u.tipo,
-u.status
+u.status,
+v.status
 
 ORDER BY v.id_veiculo DESC
 
-LIMIT :inicio,:porPagina
+LIMIT :inicio, :porPagina
 
 ";
 
@@ -425,20 +419,20 @@ $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                             <td class="text-center">
 
-                                <button class="btn btn-light border btnDetalhes"
-                                    data-modelo="<?= $dados['marca'] ?> <?= $dados['modelo'] ?>"
-                                    data-cor="<?= $dados['cor'] ?>" data-placa="<?= $dados['placa'] ?>"
-                                    data-ano="<?= $dados['ano'] ?>" data-rfid="<?= $dados['codigo_rfid'] ?>"
+                                <button class="btn btn-light border btnDetalhes" data-modelo="<?= $dados['modelo'] ?>"
+                                    data-marca="<?= $dados['marca'] ?>" data-cor="<?= $dados['cor'] ?>"
+                                    data-placa="<?= $dados['placa'] ?>" data-ano="<?= $dados['ano'] ?>"
+                                    data-rfid="<?= $dados['codigo_rfid'] ?>"
                                     data-proprietario="<?= $dados['nome'] ?> <?= $dados['sobrenome'] ?>"
-                                    data-email="<?= $dados['email'] ?>" data-telefone="<?= $dados['telefone'] ?>" data-foto="<?= !empty($dados['foto'])
-                                            ? '../' . $dados['foto']
-                                            : '../img/user.png' ?>" data-tipo="<?= $dados['tipo'] ?>"
+                                    data-email="<?= $dados['email'] ?>" data-telefone="<?= $dados['telefone'] ?>"
+                                    data-foto="<?= !empty($dados['foto']) ? '../' . $dados['foto'] : '../img/user.png' ?>"
+                                    data-tipo="<?= $dados['tipo'] ?>"
                                     data-historico="<?= htmlspecialchars($dados['historico'] ?? '') ?>"
                                     data-status="<?= $dados['status'] ?>">
 
                                     <i class="bi bi-three-dots"></i>
 
-                                </button>
+                                    </button>
 
                             </td>
 
@@ -517,6 +511,7 @@ $veiculos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 <script src="../js/veiculos.js"></script>
+<script src="../js/editar_veiculosADM.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 <?php

@@ -37,6 +37,11 @@ CREATE TABLE veiculos (
     modelo VARCHAR(50),
     cor VARCHAR(50),
     ano INT,
+    status ENUM(
+        'ativo',
+        'inativo',
+        'bloqueado'
+    ) DEFAULT 'ativo',
     FOREIGN KEY (id_usuarios) REFERENCES usuarios (id_usuario)
 );
 
